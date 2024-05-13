@@ -580,3 +580,9 @@ font-style: bold;
     display: none; /* Начинайте с состояния "скрыто" */
     /* Дополнительные стили для позиционирования и шрифта при необходимости */
 }
+
+
+
+.error-placeholder::placeholder {
+    color: red;
+}

@@ -245,44 +245,51 @@ function isNotEmpty(value) {
     return value && value.trim() !== '';
 }
 
-const checkout = () => {
-    const checkoutButton = document.getElementById('checkout-button');
-    const nameInput = document.getElementById('name');
-    const phoneInput = document.getElementById('phone');
-    const addressInput = document.getElementById('address');
+const checkout = () => { // Определение функции checkout
+    const checkoutButton = document.getElementById('checkout-button'); // Получение кнопки оформления заказа
+    const nameInput = document.getElementById('name'); // Получение поля ввода имени
+    const phoneInput = document.getElementById('phone'); // Получение поля ввода телефона
+    const addressInput = document.getElementById('address'); // Получение поля ввода адреса
 
-    const name = nameInput.value;
-    const phone = phoneInput.value;
-    const address = addressInput.value;
+    const name = nameInput.value; // Получение значения имени из поля ввода
+    const phone = phoneInput.value; // Получение значения телефона из поля ввода
+    const address = addressInput.value; // Получение значения адреса из поля ввода
 
     // Устанавливаем пустые сообщения об ошибках перед проверкой
-    nameInput.placeholder = '';
-    phoneInput.placeholder = '';
-    addressInput.placeholder = '';
+    nameInput.placeholder = ''; // Удаление текста placeholder для имени
+    phoneInput.placeholder = ''; // Удаление текста placeholder для телефона
+    addressInput.placeholder = ''; // Удаление текста placeholder для адреса
 
     // Проверяем поля на пустоту и корректность данных
-    if (!isNotEmpty(name) || !isValidName(name)) {
-        nameInput.placeholder = 'ВВЕДИТЕ ИМЯ';
+    if (!isNotEmpty(name) || !isValidName(name)) { // Если имя пустое или некорректное
+        nameInput.placeholder = 'ВВЕДИТЕ ИМЯ'; // Установка текста placeholder для имени
+        nameInput.classList.add('error-placeholder'); // Добавление класса для стилизации ошибочного поля
         nameInput.style.borderColor = 'red'; // Установка красной рамки для ошибочного поля
-        nameInput.style.color = 'red'; // Установка красного цвета текста внутри поля
-        return;
+        return; // Прекращаем выполнение функции
+    } else { // Иначе
+        nameInput.classList.remove('error-placeholder'); // Удаляем класс ошибки, если он был добавлен ранее
+        nameInput.style.borderColor = ''; // Удаляем красную рамку, если ошибка была исправлена
     }
 
-    if (!isNotEmpty(phone) || !isValidPhone(phone)) {
-        phoneInput.placeholder = 'ВВЕДИТЕ ТЕЛЕФОН !';
+    if (!isNotEmpty(phone) || !isValidPhone(phone)) { // Если телефон пустой или некорректный
+        phoneInput.placeholder = 'ВВЕДИТЕ ТЕЛЕФОН !'; // Установка текста placeholder для телефона
+        phoneInput.classList.add('error-placeholder'); // Добавление класса для стилизации ошибочного поля
         phoneInput.style.borderColor = 'red'; // Установка красной рамки для ошибочного поля
-        phoneInput.style.color = 'red'; // Установка красного цвета текста внутри поля
-        return;
+        return; // Прекращаем выполнение функции
+    } else { // Иначе
+        phoneInput.classList.remove('error-placeholder'); // Удаляем класс ошибки, если он был добавлен ранее
+        phoneInput.style.borderColor = ''; // Удаляем красную рамку, если ошибка была исправлена
     }
 
-    if (!isNotEmpty(address)) {
-        addressInput.placeholder = 'ВВЕДИТЕ АДРЕС !';
+    if (!isNotEmpty(address)) { // Если адрес пустой
+        addressInput.placeholder = 'ВВЕДИТЕ АДРЕС !'; // Установка текста placeholder для адреса
+        addressInput.classList.add('error-placeholder'); // Добавление класса для стилизации ошибочного поля
         addressInput.style.borderColor = 'red'; // Установка красной рамки для ошибочного поля
-        addressInput.style.color = 'red'; // Установка красного цвета текста внутри поля
-        return;
+        return; // Прекращаем выполнение функции
+    } else { // Иначе
+        addressInput.classList.remove('error-placeholder'); // Удаляем класс ошибки, если он был добавлен ранее
+        addressInput.style.borderColor = ''; // Удаляем красную рамку, если ошибка была исправлена
     }
-
-
     // Меняем текст и стиль кнопки
     checkoutButton.textContent = 'ОТПРАВКА';
     checkoutButton.style.backgroundColor = 'red';
