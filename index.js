@@ -254,12 +254,12 @@ const checkout = () => {
 
     // Проверяем поля на пустоту и корректность данных
     if (!isNotEmpty(name) || !isValidName(name)) {
-        alert('ВВЕДИТЕ ИМЯ!!!');
+        alert('ВВЕДИТЕ ИМЯ !!!');
         return;
     }
 
     if (!isNotEmpty(phone) || !isValidPhone(phone)) {
-        alert('ВВЕДИТЕ НОМЕР ТЕЛЕФОНА!!!');
+        alert('ВВЕДИТЕ НОМЕР ТЕЛЕФОНА !!!');
         return;
     }
 
