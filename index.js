@@ -225,6 +225,9 @@ const goToMainPage = () => {
 
 
 
+
+
+
 // Функция для проверки корректности введенного имени
 function isValidName(name) {
     const namePattern = /^[a-zA-Zа-яА-Я ]+$/;
@@ -252,21 +255,33 @@ const checkout = () => {
     const phone = phoneInput.value;
     const address = addressInput.value;
 
+    // Устанавливаем пустые сообщения об ошибках перед проверкой
+    nameInput.placeholder = '';
+    phoneInput.placeholder = '';
+    addressInput.placeholder = '';
+
     // Проверяем поля на пустоту и корректность данных
     if (!isNotEmpty(name) || !isValidName(name)) {
-        alert('ВВЕДИТЕ ИМЯ !!!');
+        nameInput.placeholder = 'ВВЕДИТЕ ИМЯ';
+        nameInput.style.borderColor = 'red'; // Установка красной рамки для ошибочного поля
+        nameInput.style.color = 'red'; // Установка красного цвета текста внутри поля
         return;
     }
 
     if (!isNotEmpty(phone) || !isValidPhone(phone)) {
-        alert('ВВЕДИТЕ ТЕЛЕФОН !!!');
+        phoneInput.placeholder = 'ВВЕДИТЕ ТЕЛЕФОН !';
+        phoneInput.style.borderColor = 'red'; // Установка красной рамки для ошибочного поля
+        phoneInput.style.color = 'red'; // Установка красного цвета текста внутри поля
         return;
     }
 
     if (!isNotEmpty(address)) {
-        alert('ВВЕДИТЕ АДРЕС !!!');
+        addressInput.placeholder = 'ВВЕДИТЕ АДРЕС !';
+        addressInput.style.borderColor = 'red'; // Установка красной рамки для ошибочного поля
+        addressInput.style.color = 'red'; // Установка красного цвета текста внутри поля
         return;
     }
+
 
     // Меняем текст и стиль кнопки
     checkoutButton.textContent = 'ОТПРАВКА';
@@ -300,6 +315,10 @@ const checkout = () => {
     backButton.style.display = 'block';
     backButton.addEventListener('click', goToMainPage);
 };
+
+
+
+
 
 // Обновленная функция отправки заказов, которая теперь принимает параметры
 const sendOrderToTelegram = (name, phone, address) => {
