@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Меню</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="order-btn">Заказать звонок</a>
+    </header>
+    <br>
+    <br>
+    <br>
+
+
+
+
+
+
+    
+    <!-- Иконка корзины -->
+    <div id="cart-icon" class="header__button get-modal_1">
+        <span id="cart-count">0</span>
+        <div id="callback-button" class="header__button get-modal_1"></div>
+    </div>
+
+    <br>
+    <br>
+
+
+    <div class="products-container">
+
+        <div class="product" data-id="1" data-name="Товар 5" data-price="500">
+            <h2>Товар 5</h2>
+            <img src="img/pizza1.jpg" alt="Товар 1">
+            <p class="myprice">Цена: $500</p>
+            <!-- Добавляем элементы для выбора количества -->
+            <div>
+                <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+                <span class="quantity" data-quantity="1">1</span>
+                <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+            </div>
+            <button class="btnadd" onclick="addToCart('Товар 5', 500, this)">в корзину</button>
+        </div>
+
+        <div class="product" data-id="1" data-name="Товар 6" data-price="600">
+            <h2>Товар 2</h2>
+            <img src="img/pizza2.jpeg" alt="Товар 6">
+            <p class="myprice">Цена: $600</p>
+            <!-- Добавляем элементы для выбора количества -->
+            <div>
+                <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+                <span class="quantity" data-quantity="1">1</span>
+                <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+            </div>
+            <button class="btnadd" onclick="addToCart('Товар 6', 600, this)">в корзину</button>
+        </div>
+
+
+        <div class="product" data-id="1" data-name="Товар 7" data-price="700">
+            <h2>Товар 3</h2>
+            <img src="img/pizza3.jpeg" alt="Товар 7">
+            <p class="myprice">Цена: $700</p>
+            <!-- Добавляем элементы для выбора количества -->
+            <div>
+                <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+                <span class="quantity" data-quantity="1">1</span>
+                <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+            </div>
+            <button class="btnadd" onclick="addToCart('Товар 7', 700, this)">в корзину</button>
+        </div>
+
+        <div class="product" data-id="1" data-name="Товар 8" data-price="800">
+            <h2>Товар 2</h2>
+            <img src="img/pizza1.jpg" alt="Товар 8">
+            <p class="myprice">Цена: $800</p>
+            <!-- Добавляем элементы для выбора количества -->
+            <div>
+                <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+                <span class="quantity" data-quantity="1">1</span>
+                <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+            </div>
+            <button class="btnadd" onclick="addToCart('Товар 8', 800, this)">в корзину</button>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <br>
+    <br>
+
+
+
+
+    <!-- Модальное окно -->
+    <div class="modal" id="modal-1">
+        <div class="modal__content">
+            <button class="modal__close-button"><img src="/img/close.svg" width="12" alt=""></button>
+            <!-- Контент модального окна -->
+
+
+            <!-- Корзина -->
+            <div class="cart" id="cart">
+                <h2 class="mycart">Корзина</h2>
+                <div id="cart-items"></div>
+                <div id="total-price"></div>
+                <br>
+                <!-- Поля для ввода данных -->
+                <input type="text" id="name" placeholder="Ваше имя">
+                <input type="tel" id="phone" placeholder="Номер телефона">
+                <input type="text" id="address" placeholder="Адрес доставки">
+
+                <br>
+                <br>
+
+                <!-- Кнопка для оформления заказа -->
+                <div id="checkout-button" class="checkout-button">
+                    <button onclick="checkout()" class="button-checkout">Оформить заказ</button>
+                </div>
+                <div id="checkout-status" class="checkout-status" style="display: none;">
+                    <p id="sending-message">Отправка заказа...</p>
+                    <p id="ready-message" style="display: none;">Заказ успешно оформлен!</p>
+                </div>
+                <!-- Ссылка для возврата к покупкам -->
+                <a href="index.html" id="back-to-shopping">
+                    <button>Вернуться к покупкам</button>
+                </a>
+
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+    <!-- Кнопка "Вернуться к покупкам" -->
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

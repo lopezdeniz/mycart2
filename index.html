@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="humburger.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+<header class="header">
+    <div class="logo">
+        Mister Pizza
+    </div>
+    <nav>
+        <ul class="menu">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Меню</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+    </nav>
+    <a href="#" class="order-btn">Заказать звонок</a>
+</header>
+
+
+
+
+
+    <!--
+       test
+        -->
+<input type="checkbox" id="nav-toggle" hidden>
+<nav class="nav">
+
+    <label for="nav-toggle" class="nav-toggle"></label>
+
+    <h2 class="logo">
+        Mister Pizza
+    </h2>
+    <ul class="nav-menu">
+        <li><a href="#1">Один</a></li>
+        <li><a href="#2">Два</a></li>
+        <li><a href="#3">Три</a></li>
+        <li><a href="#4">Четыре</a></li>
+        <li><a href="#5">Пять</a></li>
+        <li><a href="#6">Шесть</a></li>
+        <li><a href="#7">Семь</a></li>
+    </ul>
+</nav>
+
+
+
+<!--
+     test
+        -->
+
+
+   
+    
+
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <!-- Иконка корзины -->
+    <div id="cart-icon" class="header__button get-modal_1">
+        <span id="cart-count">0</span>
+         <div id="callback-button" class="header__button get-modal_1"></div>
+    </div>
+
+    <br>
+    <br>
+
+
+<div class="products-container">
+
+<div class="product" data-id="1" data-name="Товар 2" data-price="50">
+    <h2>Пицца</h2>
+    <img src="img/pizza2.jpeg" alt="Товар 2">
+<a href="pizza.html" class="btn-link">
+    <button class="btnadd">Перейти</button>
+</a>
+
+</div>
+
+
+<div class="product" data-id="1" data-name="Товар 2" data-price="50">
+    <h2>Суши и Роллы</h2>
+    <img src="img/pizza2.jpeg" alt="Товар 2">
+    <a href="roll.html" class="btn-link">
+        <button class="btnadd">Перейти</button>
+    </a>
+
+</div>
+
+<div class="product" data-id="1" data-name="Товар 2" data-price="50">
+    <h2>Бургеры</h2>
+    <img src="img/pizza2.jpeg" alt="Товар 2">
+    <a href="burger.html" class="btn-link">
+        <button class="btnadd">Перейти</button>
+    </a>
+
+</div>
+
+<div class="product" data-id="1" data-name="Товар 2" data-price="50">
+    <h2>Вторые Блюда</h2>
+    <img src="img/pizza2.jpeg" alt="Товар 2">
+    <a href="second.html" class="btn-link">
+        <button class="btnadd">Перейти</button>
+    </a>
+
+</div>
+
+
+
+</div>
+
+
+
+
+    <br>
+    <br>
+
+
+
+   
+<!-- Модальное окно -->
+<div class="modal" id="modal-1">
+    <div class="modal__content">
+        <button class="modal__close-button"><img src="/img/close.svg" width="12" alt=""></button>
+        <!-- Контент модального окна -->
+          
+            
+            <!-- Корзина -->
+            <div class="cart" id="cart">
+                <h2 class="mycart">Корзина</h2>
+                <div id="cart-items"></div>
+                <div id="total-price"></div>
+                <br>
+                <!-- Поля для ввода данных -->
+                <input type="text" id="name" placeholder="Ваше имя" required>
+                <input type="tel" id="phone" placeholder="Номер телефона" required>
+                <input type="text" id="address" placeholder="Адрес доставки" required>
+            
+                <br>
+                <br>
+            
+                <!-- Кнопка для оформления заказа -->
+                <div id="checkout-button" class="checkout-button">
+                    <button onclick="checkout()" class="button-checkout">Оформить заказ</button>
+                </div>
+                <div id="checkout-status" class="checkout-status" style="display: none;">
+                    <p id="sending-message">Отправка заказа...</p>
+                    <p id="ready-message" style="display: none;">Заказ успешно оформлен!</p>
+                </div>
+            <!-- Ссылка для возврата к покупкам -->
+            <a href="index.html" id="back-to-shopping">
+                <button>Вернуться к покупкам</button>
+            </a>
+
+            </div>
+            
+         
+          
+            
+         
+    </div>
+</div>
+<!-- Кнопка "Вернуться к покупкам" -->
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

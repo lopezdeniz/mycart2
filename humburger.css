@@ -1,0 +1,385 @@
+.nav {
+    /*  ширна произвольная, не стесняйтесь экспериментировать */
+    width: 320px;
+    min-width: 320px;
+    /* фиксируем и выставляем высоту панели на максимум */
+    height: 100%;
+    position: fixed;
+    top: 85px;
+    bottom: 0;
+    margin: 0;
+    /* сдвигаем (прячем) панель относительно левого края страницы */
+    left: -320px;
+    /* внутренние отступы */
+    padding:
+    /* плавный переход смещения панели */
+    -webkit-transition: left 0.3s;
+    -moz-transition: left 0.3s;
+    transition: left 0.3s;
+    /* определяем цвет фона панели */
+    background: ;
+    /* поверх других элементов */
+    z-index: 2000;
+    background-color:rgb(255 255 255 / 10%);
+}
+
+
+
+
+.nav-toggle {
+    /* абсолютно позиционируем */
+    position: absolute;
+    /* относительно левого края панели */
+    left: 337px;
+    /* отступ от верхнего края панели */
+    top: 1em;
+    /* внутренние отступы */
+    padding: 0.5em;
+    /* определяем цвет фона переключателя
+     * чаще вчего в соответствии с цветом фона панели
+    */
+    background: inherit;
+    /* цвет текста */
+    color: black;
+    /* вид курсора */
+    cursor: pointer;
+    /* размер шрифта */
+    font-size: 1.2em;
+    line-height: 1;
+    /* всегда поверх других элементов страницы */
+    z-index: 2001;
+    /* анимируем цвет текста при наведении */
+    -webkit-transition: color .25s ease-in-out;
+    -moz-transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+}
+
+
+/* определяем текст кнопки 
+ * символ Unicode (TRIGRAM FOR HEAVEN)
+*/
+
+
+
+
+/* цвет текста при наведении */
+
+.nav-toggle:hover {
+    color: black;
+}
+
+
+/**
+ * Скрытый чекбокс (флажок)
+ * невидим и недоступен :)
+ * имя селектора атрибут флажка
+ */
+
+[id='nav-toggle'] {
+    position: absolute;
+    display: none;
+}
+
+
+/**
+ * изменение положения переключателя 
+ * при просмотре на мобильных устройствах
+ * когда навигация раскрыта, распологаем внутри панели
+*/
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle {
+    left: auto;
+    right: 2px;
+    top: 1em;
+}
+
+
+/**
+ * Когда флажок установлен, открывается панель
+ * используем псевдокласс:checked
+ */
+
+[id='nav-toggle']:checked ~ .nav {
+    left: 0;
+    box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+    overflow-y: auto;
+}
+
+
+/* 
+ * смещение контента страницы
+ * на размер ширины панели,
+ * фишка необязательная, на любителя
+*/
+
+[id='nav-toggle']:checked ~ main > article {
+    -webkit-transform: translateX(320px);
+    -moz-transform: translateX(320px);
+    transform: translateX(320px);
+}
+
+
+/*
+ * изменение символа переключателя,
+ * привычный крестик (MULTIPLICATION X), 
+ * вы можете испльзовать любой другой значок
+*/
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
+    content: '\2715';
+}
+
+
+
+
+body {
+    -webkit-animation: bugfix infinite 1s;
+}
+
+@-webkit-keyframes bugfix {
+    to {
+      padding: 0;
+    }
+}
+
+
+/**
+ * позаботьтимся о средних и маленьких экранах
+ * мобильных устройств
+ */
+
+@media screen and (min-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .nav {
+      width: 100%;
+      box-shadow: none
+    }
+}
+
+
+/**
+ * Формируем стиль заголовка (логотип) панели 
+*/
+
+
+
+/* Стили для заголовка (логотипа) в навигационной панели */
+.nav h2 {
+    width: 90%; /* Ширина логотипа */
+    padding: 0; /* Отступы внутри логотипа */
+    margin: 10px 0; /* Внешние отступы логотипа */
+    text-align: center; /* Выравнивание текста по центру */
+    text-shadow: rgba(255, 255, 255, .1) -1px -1px 1px, rgba(0, 0, 0, .5) 1px 1px 1px; /* Тень текста */
+    font-size: 1.3em; /* Размер шрифта */
+    line-height: 1.3em; /* Высота строки */
+    opacity: 0; /* Начальная непрозрачность (скрытие) */
+    transform: scale(0.1, 0.1); /* Начальный масштаб (скрытие) */
+    transform-origin: 0% 0%; /* Ось масштабирования */
+    transition: opacity 0.8s, transform 0.8s; /* Плавное появление логотипа */
+    color: black;
+}
+
+/* Стили для ссылок внутри заголовка (логотипа) */
+.nav h2 a {
+    color: #dadada; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    text-transform: uppercase; /* Преобразование текста в верхний регистр */
+}
+
+/* Появление заголовка (логотипа) при раскрытии панели */
+[id='nav-toggle']:checked ~ .nav h2 {
+    opacity: 1; /* Установка полной непрозрачности */
+    transform: scale(1, 1); /* Установка нормального масштаба */
+}
+
+/* Стили для списка пунктов меню */
+.nav > ul {
+    display: block; /* Отображение в виде блока */
+    margin: 17px; /* Внешние отступы */
+    padding: 0; /* Внутренние отступы */
+    list-style: none; /* Убираем маркеры */
+}
+
+/* Стили для каждого пункта меню */
+.nav > ul > li {
+    line-height: 2.5; /* Высота строки */
+    opacity: 0; /* Начальная непрозрачность (скрытие) */
+    transform: translateX(-50%); /* Смещение влево на 50% от ширины */
+    transition: opacity .5s .1s, transform .5s .1s; /* Плавное появление пунктов меню */
+}
+
+/* Появление пунктов меню при раскрытии панели */
+[id='nav-toggle']:checked ~ .nav > ul > li {
+    opacity: 1; /* Установка полной непрозрачности */
+    transform: translateX(0); /* Отмена смещения */
+}
+
+/* Интервалы появления пунктов меню */
+.nav > ul > li:nth-child(2) {
+    transition: opacity .5s .2s, transform .5s .2s; /* Задержка появления */
+}
+
+.nav > ul > li:nth-child(3) {
+    transition: opacity .5s .3s, transform .5s .3s; /* Задержка появления */
+}
+
+.nav > ul > li:nth-child(4) {
+    transition: opacity .5s .4s, transform .5s .4s; /* Задержка появления */
+}
+
+.nav > ul > li:nth-child(5) {
+    transition: opacity .5s .5s, transform .5s .5s; /* Задержка появления */
+}
+
+.nav > ul > li:nth-child(6) {
+    transition: opacity .5s .6s, transform .5s .6s; /* Задержка появления */
+}
+
+.nav > ul > li:nth-child(7) {
+    transition: opacity .5s .7s, transform .5s .7s; /* Задержка появления */
+}
+
+/* Стили для ссылок пунктов меню */
+.nav > ul > li > a {
+    display: inline-block; /* Отображение в виде блока */
+    position: relative; /* Позиционирование */
+    padding: 0; /* Внутренние отступы */
+    font-family: 'Open Sans', sans-serif; /* Шрифт */
+    font-weight: 300; /* Начертание */
+    font-size: 1.2em; /* Размер шрифта */
+    color: black; /* Цвет текста */
+    width: 100%; /* Ширина ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color .5s ease, padding .5s ease; /* Плавные переходы */
+    background-color:#f4f4f4;
+}
+
+/* Стили для ссылок при наведении */
+.nav > ul > li > a:hover,
+.nav > ul > li > a:focus {
+    color: black; /* Цвет текста при наведении */
+    padding-left: 15px; /* Дополнительный отступ слева */
+}
+
+/* Линия подчеркивания ссылок */
+.nav > ul > li > a:before {
+    content: ''; /* Добавляем пустой контент */
+    display: block; /* Отображение в виде блока */
+    position: absolute; /* Абсолютное позиционирование */
+    right: 0; /* Правый край */
+    bottom: 0; /* Нижний край */
+    height: 1px; /* Высота линии */
+    width: 100%; /* Ширина линии */
+    transition: width 0s ease; /* Плавный переход */
+}
+
+.nav > ul > li > a:after {
+    content: ''; /* Добавляем пустой контент */
+    display: block; /* Отображение в виде блока */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0; /* Левый край */
+    bottom: 0; /* Нижний край */
+    height: 1px; /* Высота линии */
+    width: 100%; /* Ширина линии */
+    background: black; /* Цвет линии */
+    transition: width .5s ease; /* Плавный переход */
+}
+
+/* Анимация линии подчеркивания при наведении */
+.nav > ul > li > a:hover:before {
+    width: 0%; /* Убираем линию */
+    background: red; /* Цвет линии при наведении */
+}
+
+.nav > ul > li > a:hover:after {
+    width: 0%; /* Убираем линию */
+    background: transparent; /* Прозрачный цвет линии */
+}
+
+/* Стили для всех ссылок на странице */
+a {
+    color: black; /* Цвет текста ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+/* Стили для кнопок */
+.btn {
+    border-radius: 10em; /* Радиус скругления */
+    border: 0; /* Убираем границу */
+    color: black!important; /* Цвет текста кнопки */
+    margin: 6px; /* Внешние отступы */
+    line-height: 1.25; /* Высота строки */
+    text-align: center; /* Выравнивание текста по центру */
+    vertical-align: middle; /* Выравнивание по вертикали */
+    cursor: pointer; /* Изменение курсора */
+    padding: .5rem 1rem; /* Внутренние отступы */
+    font-size: 1rem; /* Размер шрифта */
+    font-weight: 400; /* Начертание шрифта */
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12); /* Тень кнопки */
+    transition: box-shadow .2s ease-out; /* Плавное изменение тени */
+}
+
+/* При наведении на кнопку */
+.btn:hover {
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15); /* Тень при наведении */
+}
+
+/* Стили для первичной кнопки */
+.btn-primary {
+    border: 2px solid #2BBBAD; /* Граница первичной кнопки */
+    color: #00695c!important; /* Цвет текста первичной кнопки */
+    background-color: transparent; /* Прозрачный фон */
+}
+
+/* Стили для вторичной кнопки */
+.btn-secondary {
+    border: 2px solid #00C851; /* Граница вторичной кнопки */
+    color: #007E33!important; /* Цвет текста вторичной кнопки */
+    background-color: transparent; /* Прозрачный фон */
+}
+
+/* Стили для навигационной панели */
+.nav {
+    background-image: url(''); /* Фоновое изображение */
+    background-size: cover; /* Масштабирование фонового изображения */
+    background-repeat: no-repeat; /* Отмена повтора фонового изображения */
+}
+
+/* Стили для переключателя навигационной панели */
+.nav-toggle {
+    display: block; /* Отображение в виде блока */
+    height: 28px; /* Высота переключателя */
+    width: 22px; /* Ширина переключателя */
+    cursor: pointer; /* Изменение курсора */
+}
+
+/* Псевдоэлемент для стилизации переключателя */
+.nav-toggle:after {
+    content: ''; /* Добавляем пустой контент */
+    position: absolute; /* Абсолютное позиционирование */
+    top: -6px; /* Верхний край */
+    left: 0; /* Левый край */
+    width: 114%; /* Ширина */
+    height: 100%; /* Высота */
+    background-image: url('img/iconburger.svg'); /* Фоновое изображение */
+    background-size: cover; /* Масштабирование фонового изображения */
+    background-repeat: no-repeat; /* Отмена повтора фонового изображения */
+    z-index: -1; /* Задаем порядок слоев */
+    
+}
+
+}

@@ -1,0 +1,575 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+* {
+  font-family: "Raleway";
+}
+body {
+    margin: 0; /* Убираем внешние отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    font-family: 'Poppins';font-size: ;
+     background-color: #ffffff;
+}
+
+
+
+
+/* Стили для шапки */
+        .header {
+            background-color: black;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Стили для навигационного меню */
+        .menu {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu li:last-child {
+            margin-right: 0;
+        }
+
+        .menu li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Стили для кнопки "Заказать звонок" */
+        .order-btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media only screen and (max-width: 600px) {
+            .menu {
+                display: none;
+            }
+        }
+
+.close:hover,
+.close:focus {
+    color: black; /* Изменяем цвет значка закрытия при наведении или фокусировке */
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя */
+}
+
+ /* Стили для шапки */
+.header {
+    background-color: black;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Устанавливаем ширину шапки на 100% */
+    box-sizing: border-box; /* Учитываем отступы и границы внутри шапки */
+}
+
+/* Стили для контейнера внутри шапки */
+.header__inner {
+    width: 100%; /* Устанавливаем ширину контейнера внутри шапки на 100% */
+    max-width: 1200px; /* Максимальная ширина контейнера внутри шапки */
+    padding: 0 15px;
+    margin: auto; /* Центрируем контейнер по горизонтали */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Размещаем элементы по краям */
+    text-align: center; /* Центрируем текст по центру */
+}
+
+/* Стили для навигационного меню */
+.menu {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+.menu li {
+    display: inline-block; /* Делаем элементы списка блочными, чтобы они выстраивались в ряд */
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px; /* Увеличиваем размер шрифта */
+    font-weight: bold; /* Делаем текст жирным */
+    margin-right: 20px; /* Добавляем отступы между надписями */
+}
+
+/* Убираем правый отступ у последней надписи */
+.menu li:last-child a {
+    margin-right: 0;
+}
+
+/* Стили для кнопки "Заказать звонок" */
+.order-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 0 9px 0 0;
+}
+
+/* Стили для логотипа */
+.logo {
+    max-width: 300px; /* Максимальная ширина логотипа */
+    max-height: 100px; /* Максимальная высота логотипа */
+    width: auto; /* Автоматическое вычисление ширины */
+    height: auto; /* Автоматическое вычисление высоты */
+    color: white;
+    font-size: 30px;
+    margin: 0 0 0 7px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Стили для корзины */
+.cart {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 70px auto 0; /* Центрируем корзину по горизонтали */
+    max-width: 600px; /* Устанавливаем максимальную ширину корзины */
+    background-color: #f4f4f4; /* Цвет фона корзины */
+    text-align: center; /* Выравниваем текст по центру в корзине */
+    width: 90%;
+}
+
+.cart-item {
+    margin-bottom: 20px; /* Отступ между товарами в корзине */
+    padding: 20px; /* Внутренний отступ для каждого товара в корзине */
+    background-color: #e0e0e0; /* Цвет фона товаров в корзине */
+    border-radius: 5px; /* Скругление углов товаров в корзине */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для товаров в корзине */
+}
+
+/* Стили для кнопок управления количеством товара */
+.cart-item button {
+    background-color: #bbb; /* Цвет фона кнопок управления количеством товара */
+    color: #fff; /* Цвет текста на кнопках управления количеством товара */
+    border: none; /* Убираем границы кнопок управления количеством товара */
+    padding: 8x 8px; /* Отступы внутри кнопок управления количеством товара */
+    margin-left: 7px; /* Отступ слева от кнопок управления количеством товара */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя на кнопки управления количеством товара */
+    border-radius: 3px; /* Скругляем углы кнопок управления количеством товара */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для кнопок управления количеством товара */
+}
+
+.cart-item button:hover {
+    background-color: #999; /* Изменяем цвет фона кнопок управления количеством товара при наведении */
+}
+
+/* Стили для общей стоимости и кнопки оформления заказа */
+.cart-total {
+    margin-top: 20px; /* Отступ сверху от общей стоимости */
+    text-align: right; /* Выравниваем текст по правому краю */
+}
+
+.checkout-button {
+    background-color: #4CAF50; /* Цвет фона кнопки оформления заказа */
+    color: white; /* Цвет текста на кнопке оформления заказа */
+    border: none; /* Убираем границу кнопки оформления заказа */
+    padding: 15px 30px; /* Отступы внутри кнопки оформления заказа */
+    margin-top: 20px; /* Отступ сверху от кнопки оформления заказа */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя */
+    border-radius: 3px; /* Скругляем углы кнопки оформления заказа */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для кнопки оформления заказа */
+}
+
+.checkout-button:hover {
+    background-color: #45a049; /* Изменяем цвет фона кнопки оформления заказа при наведении */
+}
+
+/* Стили для иконки корзины */
+#cart-icon {
+    position: fixed; /* Фиксируем иконку корзины */
+    top: 30px; /* Отступ от верхнего края */
+    right: 30px; /* Отступ от правого края */
+    width: 50px; /* Ширина иконки корзины */
+    height: 50px; /* Высота иконки корзины */
+    display: flex; /* Отображаем иконку корзины как flex-контейнер */
+    justify-content: center; /* Выравниваем содержимое по центру по горизонтали */
+    align-items: center; /* Выравниваем содержимое по центру по вертикали */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя */
+    z-index: 999; /* Устанавливаем наивысший уровень z-index, чтобы иконка корзины была выше других элементов */
+    background-image: url('/img/cart.png'); /* Устанавливаем изображение иконки корзины */
+    background-size: cover; /* Масштабируем изображение, чтобы оно полностью покрывало элемент */
+    background-repeat: no-repeat; /* Отключаем повторение изображения */
+}
+
+#cart-count {
+    position: absolute; /* Позиционируем счетчик корзины абсолютно относительно родительского элемента */
+    top: -10px; /* Отступ от верхнего края */
+    right: -18px; /* Отступ от правого края */
+    background-color: red; /* Цвет фона счетчика корзины */
+    color: white; /* Цвет текста счетчика корзины */
+    font-weight: bold;
+    font-size: 16px; /* Размер шрифта счетчика корзины */
+    padding: 5px; /* Отступы внутри счетчика корзины */
+    border-radius: 50%; /* Скругляем углы счетчика корзины, чтобы он выглядел как круг */
+    min-width: 20px; /* Минимальная ширина счетчика корзины */
+    text-align: center; /* Выравниваем текст по центру */
+    z-index: 1000; /* Устанавливаем наивысший уровень z-index, чтобы счетчик корзины был выше иконки корзины */
+}
+
+.product {
+    max-width: 300px; /* Максимальная ширина карточки товара */
+    margin: 0 auto 20px; /* Центрируем карточку товара и добавляем отступ между ними */
+    padding: 20px; /* Внутренний отступ для карточки товара */
+    background-color: #fff; /* Цвет фона карточки товара */
+    border-radius: 10px; /* Скругляем углы карточки товара */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для карточки товара */
+    text-align: center; /* Выравниваем текст внутри карточки товара по центру */
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.product img {
+    max-width: 100%; /* Максимальная ширина изображения в карточке товара */
+    border-radius: 5px; /* Скругляем углы изображения */
+    margin-bottom: 10px; /* Отступ снизу от изображения */
+}
+
+.product h3 {
+    margin-bottom: 10px; /* Отступ снизу от заголовка */
+}
+
+.product p {
+    margin-bottom: 15px; /* Отступ снизу от текста */
+}
+
+.product button {
+    background-color: black; /* Цвет фона кнопки в карточке товара */
+    color: white; /* Цвет текста на кнопке в карточке товара */
+    border: none; /* Убираем границу кнопки в карточке товара */
+    padding: 10px 20px; /* Отступы внутри кнопки в карточке товара */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя на кнопке в карточке товара */
+    border-radius: 3px; /* Скругляем углы кнопки в карточке товара */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для кнопки в карточке товара */
+}
+
+.product button:hover {
+    background-color: #140F0B; /* Изменяем цвет фона кнопки при наведении на кнопку в карточке товара */
+}
+
+.product button:active {
+    background-color: #808080;
+    color: black;
+}
+
+.btnadd {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.products-container {
+    display: flex; /* Отображаем контейнер товаров как flex-контейнер */
+    justify-content: center; /* Выравниваем содержимое по центру по горизонтали */
+    flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку */
+}
+
+/* Стили для карточек товаров */
+.product {
+    flex: 0 0 calc(33.33% - 20px); /* Задаем ширину каждой карточки товара, с учетом отступов */
+    margin: 10px; /* Отступ между карточками товаров */
+    border: 1px solid #ccc; /* Граница карточки товара */
+    border-radius: 5px; /* Скругляем углы карточки товара */
+    text-align: center; /* Выравниваем текст внутри карточки товара по центру */
+}
+
+.product img {
+    max-width: 100%; /* Максимальная ширина изображения в карточке товара */
+    height: auto; /* Автоматическая высота изображения в карточке товара */
+}
+
+
+
+
+
+
+.button-checkout {
+    background-color: #7f8c8d; /* Цвет фона кнопки оформления заказа */
+    color: #fff; /* Цвет текста на кнопке оформления заказа */
+    padding: 10px 20px; /* Отступы внутри кнопки оформления заказа */
+    border: none; /* Убираем границу кнопки оформления заказа */
+    border-radius: 5px; /* Скругляем углы кнопки оформления заказа */
+    font-size: 16px; /* Размер шрифта кнопки оформления заказа */
+    text-transform: uppercase; /* Преобразуем текст в верхний регистр */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя на кнопку оформления заказа */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Тень для кнопки оформления заказа */
+}
+
+.button-checkout:hover {
+    background-color: #7f8c8f; /* Изменяем цвет фона кнопки оформления заказа при наведении */
+}
+
+input[type="text"],
+input[type="tel"] {
+    color: #333; /* Цвет текста в полях ввода */
+    background-color: #f5f5f5; /* Цвет фона полей ввода */
+    border: 1px solid #ccc; /* Граница полей ввода */
+    border-radius: 5px; /* Скругление углов полей ввода */
+    padding: 9.2px 13.8px; /* Внутренние отступы в полях ввода */
+    margin-bottom: 11.5px; /* Отступ снизу от полей ввода */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Тень для полей ввода */
+    transition: border-color 0.3s ease-in-out; /* Анимация изменения цвета границы поля ввода */
+    font-size: 17px; /* Размер шрифта в полях ввода */
+    text-align: left; /* Выравниваем текст в полях ввода по левому краю */
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus {
+    border-color: #007bff; /* Цвет границы поля ввода при фокусировке */
+}
+
+
+
+.mycart {
+
+font-weight: 900;
+font-style: bold;
+
+}
+
+/* Добавляем стили для элементов корзины */
+.cart-item-name {
+    font-size: 15px; /* Устанавливаем размер текста для названия товара */
+    font-weight: bold;
+}
+
+.total-price-text {
+    font-size: 17px; /* Устанавливаем размер текста для общей стоимости */
+    font-weight: bold; /* Делаем текст жирным */
+}
+
+.deliveryMessage {
+    font-size: 18px; /* Устанавливаем размер текста */
+    font-weight: bold; /* Делаем текст жирным */
+}
+
+
+
+/* Модальное окно */
+
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.content p {
+  margin: 15px 0;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+
+.header__inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__logo p {
+  color: #fff;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+}
+
+.header__button {
+ 
+  position: fixed; /* Фиксируем иконку корзины */
+   margin: 70px auto 0;
+    top: 30px; /* Отступ от верхнего края */
+    right: 30px; /* Отступ от правого края */
+    width: 50px; /* Ширина иконки корзины */
+    height: 50px; /* Высота иконки корзины */
+    display: flex; /* Отображаем иконку корзины как flex-контейнер */
+    justify-content: center; /* Выравниваем содержимое по центру по горизонтали */
+    align-items: center; /* Выравниваем содержимое по центру по вертикали */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя */
+    z-index: 999; /* Устанавливаем наивысший уровень z-index, чтобы иконка корзины была выше других элементов */
+    background-image: url('img/cart.png'); /* Устанавливаем изображение иконки корзины */
+    background-size: cover; /* Масштабируем изображение, чтобы оно полностью покрывало элемент */
+    background-repeat: no-repeat; /* Отключаем повторение изображения */
+}
+
+.header__button:hover {
+  background: ;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.modal {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: .3s;
+  transition: .3s;
+  top: -1000px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  overflow-y: scroll;
+  padding: 60px 15px;
+}
+
+.modal_active {
+  position: fixed;
+  top: 0;
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.modal__content {
+  width: 100%;
+  max-width: 500px;
+  padding: 14px;
+  background: #f9f9f9;
+  -webkit-box-shadow: 0 5px 15px black;
+          box-shadow: 0 5px 15px black;
+  border-radius: 3px;
+  position: relative;
+}
+
+.modal__close-button {
+  background: #ff0000;
+  height: 30px;
+  width: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  outline: none;
+}
+
+.modal__close-button:hover {
+  -webkit-transition: .3s;
+  transition: .3s;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.modal__title {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin: 0 0 15px;
+}
+
+.modal__description {
+  font-size: 1.125rem;
+}
+/*# sourceMappingURL=style.css.map */
+
+/* Оформление надписи общая стоимость */
+.total-price-text {
+    background-color: lightgray; /* Устанавливаем серый фон */
+    padding: 5px 10px; /* Добавляем небольшие отступы вокруг текста */
+    border-radius: 5px; /* Делаем закругленные углы рамки */
+}
+
+/* Стили для ссылки */
+#back-to-shopping {
+    display: inline-block; /* Делаем ссылку блочным элементом */
+    margin: 20px auto; /* Центрируем ссылку по горизонтали и задаем отступы по вертикали */
+}
+
+/* Стили для кнопки внутри ссылки */
+#back-to-shopping button {
+    padding: 20px 30px; /* Задаем отступы внутри кнопки */
+    background-color: grey; /* Задаем серый цвет фона */
+    color: white; /* Задаем белый цвет текста */
+    border: none; /* Убираем границу кнопки */
+    border-radius: 5px; /* Задаем скругленные углы */
+    cursor: pointer; /* Задаем указательный курсор при наведении */
+    font-size: 16px; /* Задаем размер шрифта */
+}
+
+/* Изменение стилей кнопки при наведении */
+#back-to-shopping button:hover {
+    background-color: darkgrey; /* Изменяем цвет фона кнопки при наведении */
+}
+
+
+/* Медиа-запрос для мобильных устройств (ширина меньше 768px) */
+@media only screen and (max-width: 800px) {
+    .products-container {
+        flex-direction: column; /* Карточки будут выстраиваться вертикально */
+        align-items: center; /* Выравниваем карточки по центру по горизонтали */
+    }
+    
+    .product {
+        max-width: 76%;
+         /* Каждая карточка будет занимать всю доступную ширину */
+    }
+.cart-item-name {
+      font-size: 12px;
+}
+      
+
+    
+}
+
