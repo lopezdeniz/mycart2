@@ -225,8 +225,50 @@ const goToMainPage = () => {
 
 
 
+// Функция для проверки корректности введенного имени
+function isValidName(name) {
+    const namePattern = /^[a-zA-Zа-яА-Я ]+$/;
+    return namePattern.test(name);
+}
+
+// Функция для проверки корректности введенного телефона
+function isValidPhone(phone) {
+    const phonePattern = /^\+?\d{10,15}$/;
+    return phonePattern.test(phone);
+}
+
+// Функция для проверки на пустоту полей
+function isNotEmpty(value) {
+    return value && value.trim() !== '';
+}
+
 const checkout = () => {
     const checkoutButton = document.getElementById('checkout-button');
+    const nameInput = document.getElementById('name');
+    const phoneInput = document.getElementById('phone');
+    const addressInput = document.getElementById('address');
+
+    const name = nameInput.value;
+    const phone = phoneInput.value;
+    const address = addressInput.value;
+
+    // Проверяем поля на пустоту и корректность данных
+    if (!isNotEmpty(name) || !isValidName(name)) {
+        alert('Введите корректное имя');
+        return;
+    }
+
+    if (!isNotEmpty(phone) || !isValidPhone(phone)) {
+        alert('Введите корректный номер телефона');
+        return;
+    }
+
+    if (!isNotEmpty(address)) {
+        alert('Введите адрес доставки');
+        return;
+    }
+
+    // Меняем текст и стиль кнопки
     checkoutButton.textContent = 'ОТПРАВКА';
     checkoutButton.style.backgroundColor = 'red';
     checkoutButton.style.width = '150px';
@@ -235,26 +277,17 @@ const checkout = () => {
     checkoutButton.style.fontSize = "20px";
     checkoutButton.style.fontWeight = "bold";
 
-
-
-
-
-
-
-
-
     // Отправляем заказ в телеграм
-    sendOrderToTelegram();
+    sendOrderToTelegram(name, phone, address);
 
     setTimeout(() => {
         checkoutButton.textContent = 'Готово! Сейчас мы вам перезвоним для сверки заказа.';
         checkoutButton.style.backgroundColor = '';
         checkoutButton.style.width = '';
-
         // Очищаем поля ввода
-        document.getElementById('name').value = '';
-        document.getElementById('phone').value = '';
-        document.getElementById('address').value = '';
+        nameInput.value = '';
+        phoneInput.value = '';
+        addressInput.value = '';
     }, 1000);
 
     // Очищаем корзину и удаляем данные из локального хранилища
@@ -266,17 +299,10 @@ const checkout = () => {
     const backButton = document.getElementById('back-to-shopping');
     backButton.style.display = 'block';
     backButton.addEventListener('click', goToMainPage);
-
-
 };
 
-// Функция для отправки заказа в телеграм
-const sendOrderToTelegram = () => {
-    // Получаем значения полей имени, телефона и адреса
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const address = document.getElementById('address').value;
-
+// Обновленная функция отправки заказов, которая теперь принимает параметры
+const sendOrderToTelegram = (name, phone, address) => {
     // Создаем сообщение с данными о заказе и информацией о клиенте
     let message = `Новый заказ!\n\nИмя: ${name}\nТелефон: ${phone}\nАдрес: ${address}\n\n`;
     let totalPrice = calculateTotalPrice();
@@ -294,6 +320,9 @@ const sendOrderToTelegram = () => {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({ chat_id: '-1002094926558', text: message }));
 };
+
+// Не забудьте заменить 'YOUR_BOT_TOKEN' и 'YOUR_CHAT_ID' на реальный токен вашего бота и ID чата.
+
 
 
 
