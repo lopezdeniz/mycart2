@@ -259,7 +259,7 @@ const checkout = () => {
     }
 
     if (!isNotEmpty(phone) || !isValidPhone(phone)) {
-        alert('ВВЕДИТЕ НОМЕР ТЕЛЕФОНА !!!');
+        alert('ВВЕДИТЕ ТЕЛЕФОН !!!');
         return;
     }
 
@@ -268,10 +268,6 @@ const checkout = () => {
         return;
     }
 
-
-
-
-    
     // Меняем текст и стиль кнопки
     checkoutButton.textContent = 'ОТПРАВКА';
     checkoutButton.style.backgroundColor = 'red';
@@ -281,7 +277,8 @@ const checkout = () => {
     checkoutButton.style.fontSize = "20px";
     checkoutButton.style.fontWeight = "bold";
 
-   
+    // Отправляем заказ в телеграм
+    sendOrderToTelegram(name, phone, address);
 
     setTimeout(() => {
         checkoutButton.textContent = 'Готово! Сейчас мы вам перезвоним для сверки заказа.';
@@ -324,7 +321,7 @@ const sendOrderToTelegram = (name, phone, address) => {
     xhr.send(JSON.stringify({ chat_id: '-1002094926558', text: message }));
 };
 
-
+// Не забудьте заменить 'YOUR_BOT_TOKEN' и 'YOUR_CHAT_ID' на реальный токен вашего бота и ID чата.
 
 
 
@@ -411,6 +408,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Модальное бургер
-
 
 
