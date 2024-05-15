@@ -269,7 +269,7 @@ body {
 }
 
 .product button:hover {
-    background-color: #140F0B; /* Изменяем цвет фона кнопки при наведении на кнопку в карточке товара */
+    background-color:  #f4f4f4; /* Изменяем цвет фона кнопки при наведении на кнопку в карточке товара */
 }
 
 .product button:active {
@@ -484,8 +484,8 @@ font-style: bold;
 
 .modal__close-button {
   background: #ff0000;
-  height: 30px;
-  width: 30px;
+  height: 39px;
+  width: 44px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
