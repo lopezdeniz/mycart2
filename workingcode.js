@@ -409,3 +409,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+const toggleOverlay = (container) => {
+    const overlay = container.querySelector('.overlay');
+    const currentOpacity = window.getComputedStyle(overlay).opacity;
+    overlay.style.opacity = currentOpacity == 0 ? '1' : '0';
+};
+
+
