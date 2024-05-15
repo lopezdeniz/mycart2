@@ -259,12 +259,12 @@ body {
 }
 
 .product button {
-    background-color: #00c829;; /* Цвет фона кнопки в карточке товара */
-    color: white; /* Цвет текста на кнопке в карточке товара */
+    background-color: rgb(0 0 0 / 10%); /* Цвет фона кнопки в карточке товара */
+    color: black; /* Цвет текста на кнопке в карточке товара */
     border: none; /* Убираем границу кнопки в карточке товара */
     padding: 10px 20px; /* Отступы внутри кнопки в карточке товара */
     cursor: pointer; /* Устанавливаем курсор в виде указателя на кнопке в карточке товара */
-    border-radius: 3px; /* Скругляем углы кнопки в карточке товара */
+    border-radius: 14px; /* Скругляем углы кнопки в карточке товара */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для кнопки в карточке товара */
 }
 
@@ -279,6 +279,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
+    padding: 10px 74px !important;
 }
 
 .products-container {
