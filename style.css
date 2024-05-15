@@ -625,7 +625,7 @@ font-style: bold;
 }
 
 .size-btn.selected {
-    background-color: #f0f0f0; /* Цвет фона для выбранной кнопки */
+    background-color: #ffffff; /* Цвет фона для выбранной кнопки */
     color: black; /* Цвет текста для выбранной кнопки */
     border: 2px solid #000; /* Чуть более жирная граница */
 }
