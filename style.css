@@ -259,7 +259,7 @@ body {
 }
 
 .product button {
-    background-color: black; /* Цвет фона кнопки в карточке товара */
+    background-color: #00c829;; /* Цвет фона кнопки в карточке товара */
     color: white; /* Цвет текста на кнопке в карточке товара */
     border: none; /* Убираем границу кнопки в карточке товара */
     padding: 10px 20px; /* Отступы внутри кнопки в карточке товара */
@@ -273,8 +273,8 @@ body {
 }
 
 .product button:active {
-    background-color: #808080;
-    color: black;
+    background-color:  #f4f4f4;
+    color:  #f4f4f4;
 }
 
 .btnadd {
