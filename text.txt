@@ -1,460 +1,1044 @@
-.nav {
-    /*  ширна произвольная, не стесняйтесь экспериментировать */
-    width: 320px;
-    min-width: 320px;
-    /* фиксируем и выставляем высоту панели на максимум */
-    height: 100%;
-    position: fixed;
-    top: 85px;
-    bottom: 0;
-    margin: 0;
-    /* сдвигаем (прячем) панель относительно левого края страницы */
-    left: -320px;
-    /* внутренние отступы */
-    padding:
-    /* плавный переход смещения панели */
-    -webkit-transition: left 0.3s;
-    -moz-transition: left 0.3s;
-    transition: left 0.3s;
-    /* определяем цвет фона панели */
-    background: ;
-    /* поверх других элементов */
-    z-index: 2000;
+@import url('https://fonts.cdnfonts.com/css/gilroy');
+* {
+  font-family:'Gilroy', sans-serif;
 }
-
-
-
-
-.nav-toggle {
-    /* абсолютно позиционируем */
-    position: absolute;
-    /* относительно левого края панели */
-    left: 337px;
-    /* отступ от верхнего края панели */
-    top: 1em;
-    /* внутренние отступы */
-    padding: 0.5em;
-    /* определяем цвет фона переключателя
-     * чаще вчего в соответствии с цветом фона панели
-    */
-    background: inherit;
-    /* цвет текста */
-    color: black;
-    /* вид курсора */
-    cursor: pointer;
-    /* размер шрифта */
-    font-size: 1.2em;
-    line-height: 1;
-    /* всегда поверх других элементов страницы */
-    z-index: 2001;
-    /* анимируем цвет текста при наведении */
-    -webkit-transition: color .25s ease-in-out;
-    -moz-transition: color .25s ease-in-out;
-    transition: color .25s ease-in-out;
-}
-
-
-/* определяем текст кнопки 
- * символ Unicode (TRIGRAM FOR HEAVEN)
-*/
-
-
-
-
-/* цвет текста при наведении */
-
-.nav-toggle:hover {
-    color: #f4f4f4;
-}
-
-
-/**
- * Скрытый чекбокс (флажок)
- * невидим и недоступен :)
- * имя селектора атрибут флажка
- */
-
-[id='nav-toggle'] {
-    position: absolute;
-    display: none;
-}
-
-
-/**
- * изменение положения переключателя 
- * при просмотре на мобильных устройствах
- * когда навигация раскрыта, распологаем внутри панели
-*/
-
-[id='nav-toggle']:checked ~ .nav > .nav-toggle {
-    left: auto;
-    right: 2px;
-    top: 1em;
-}
-
-
-/**
- * Когда флажок установлен, открывается панель
- * используем псевдокласс:checked
- */
-
-[id='nav-toggle']:checked ~ .nav {
-    left: 0;
-    box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
-    -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
-    -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
-    overflow-y: auto;
-}
-
-
-/* 
- * смещение контента страницы
- * на размер ширины панели,
- * фишка необязательная, на любителя
-*/
-
-[id='nav-toggle']:checked ~ main > article {
-    -webkit-transform: translateX(320px);
-    -moz-transform: translateX(320px);
-    transform: translateX(320px);
-}
-
-
-/*
- * изменение символа переключателя,
- * привычный крестик (MULTIPLICATION X), 
- * вы можете испльзовать любой другой значок
-*/
-
-[id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
-    content: '\2715';
-}
-
-
-
-
 body {
-    -webkit-animation: bugfix infinite 1s;
-}
-
-@-webkit-keyframes bugfix {
-    to {
-      padding: 0;
-    }
+    margin: 0; /* Убираем внешние отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    font-family: 'Poppins';font-size: ;
+     background-color: #ffffff;
 }
 
 
-/**
- * позаботьтимся о средних и маленьких экранах
- * мобильных устройств
- */
 
-@media screen and (min-width: 320px) {
-    html,
-    body {
-      margin: 0;
-      overflow-x: hidden;
-    }
+
+/* Стили для шапки */
+        .header {
+            background-color: black;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Стили для навигационного меню */
+        .menu {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu li:last-child {
+            margin-right: 0;
+        }
+
+        .menu li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Стили для кнопки "Заказать звонок" */
+        .order-btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media only screen and (max-width: 600px) {
+            .menu {
+                display: none;
+            }
+        }
+
+.close:hover,
+.close:focus {
+    color: black; /* Изменяем цвет значка закрытия при наведении или фокусировке */
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя */
 }
 
-@media screen and (max-width: 320px) {
-    html,
-    body {
-      margin: 0;
-      overflow-x: hidden;
-    }
-    .nav {
-      width: 100%;
-      box-shadow: none
-    }
+ /* Стили для шапки */
+.header {
+    background-color: black;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Устанавливаем ширину шапки на 100% */
+    box-sizing: border-box; /* Учитываем отступы и границы внутри шапки */
 }
 
-
-/**
- * Формируем стиль заголовка (логотип) панели 
-*/
-
-.nav h2 {
-    width: 90%;
-    padding: 0;
-    margin: 10px 0;
-    text-align: center;
-    text-shadow: rgba(255, 255, 255, .1) -1px -1px 1px, rgba(0, 0, 0, .5) 1px 1px 1px;
-    font-size: 1.3em;
-    line-height: 1.3em;
-    opacity: 0;
-    transform: scale(0.1, 0.1);
-    -ms-transform: scale(0.1, 0.1);
-    -moz-transform: scale(0.1, 0.1);
-    -webkit-transform: scale(0.1, 0.1);
-    transform-origin: 0% 0%;
-    -ms-transform-origin: 0% 0%;
-    -moz-transform-origin: 0% 0%;
-    -webkit-transform-origin: 0% 0%;
-    transition: opacity 0.8s, transform 0.8s;
-    -ms-transition: opacity 0.8s, -ms-transform 0.8s;
-    -moz-transition: opacity 0.8s, -moz-transform 0.8s;
-    -webkit-transition: opacity 0.8s, -webkit-transform 0.8s;
+/* Стили для контейнера внутри шапки */
+.header__inner {
+    width: 100%; /* Устанавливаем ширину контейнера внутри шапки на 100% */
+    max-width: 1200px; /* Максимальная ширина контейнера внутри шапки */
+    padding: 0 15px;
+    margin: auto; /* Центрируем контейнер по горизонтали */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Размещаем элементы по краям */
+    text-align: center; /* Центрируем текст по центру */
 }
 
-.nav h2 a {
-    color: #dadada;
-    text-decoration: none;
-    text-transform: uppercase;
+/* Стили для навигационного меню */
+.menu {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы */
+    margin: 0; /* Убираем внешние отступы */
 }
 
-
-/*плавное появление заголовка (логотипа) при раскрытии панели */
-
-[id='nav-toggle']:checked ~ .nav h2 {
-    opacity: 1;
-    transform: scale(1, 1);
-    -ms-transform: scale(1, 1);
-    -moz-transform: scale(1, 1);
-    -webkit-transform: scale(1, 1);
+.menu li {
+    display: inline-block; /* Делаем элементы списка блочными, чтобы они выстраивались в ряд */
 }
 
-
-/**
- * формируем непосредственно само меню
- * используем неупорядоченный список для пунктов меню
- * прикрутим трансфомации и плавные переходы
- */
-
-.nav > ul {
-    display: block;
-    margin: 17px;
-    padding: 0;
-    list-style: none;
-}
-
-.nav > ul > li {
-    line-height: 2.5;
-    opacity: 0;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
-    -webkit-transition: opacity .5s .1s, -webkit-transform .5s .1s;
-    -moz-transition: opacity .5s .1s, -moz-transform .5s .1s;
-    -ms-transition: opacity .5s .1s, -ms-transform .5s .1s;
-    transition: opacity .5s .1s, transform .5s .1s;
-}
-
-[id='nav-toggle']:checked ~ .nav > ul > li {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0);
-}
-
-
-/* определяем интервалы появления пунктов меню */
-
-.nav > ul > li:nth-child(2) {
-    -webkit-transition: opacity .5s .2s, -webkit-transform .5s .2s;
-    transition: opacity .5s .2s, transform .5s .2s;
-}
-
-.nav > ul > li:nth-child(3) {
-    -webkit-transition: opacity .5s .3s, -webkit-transform .5s .3s;
-    transition: opacity .5s .3s, transform .5s .3s;
-}
-
-.nav > ul > li:nth-child(4) {
-    -webkit-transition: opacity .5s .4s, -webkit-transform .5s .4s;
-    transition: opacity .5s .4s, transform .5s .4s;
-}
-
-.nav > ul > li:nth-child(5) {
-    -webkit-transition: opacity .5s .5s, -webkit-transform .5s .5s;
-    transition: opacity .5s .5s, transform .5s .5s;
-}
-
-.nav > ul > li:nth-child(6) {
-    -webkit-transition: opacity .5s .6s, -webkit-transform .5s .6s;
-    transition: opacity .5s .6s, transform .5s .6s;
-}
-
-.nav > ul > li:nth-child(7) {
-    -webkit-transition: opacity .5s .7s, -webkit-transform .5s .7s;
-    transition: opacity .5s .7s, transform .5s .7s;
-}
-
-
-/**
- * оформление ссылок пунктов меню
- */
-
-.nav > ul > li > a {
-    display: inline-block;
-    position: relative;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    font-size: 1.2em;
-    color: #dadada;
-    width: 100%;
-    text-decoration: none;
-    /* плавный переход */
-    -webkit-transition: color .5s ease, padding .5s ease;
-    -moz-transition: color .5s ease, padding .5s ease;
-    transition: color .5s ease, padding .5s ease;
-}
-
-
-/**
- * состояние ссылок меню при наведении
- */
-
-.nav > ul > li > a:hover,
-.nav > ul > li > a:focus {
+.menu li a {
     color: white;
-    padding-left: 15px;
-}
-
-
-/**
- * линия подчеркивания ссылок меню
- */
-
-.nav > ul > li > a:before {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 1px;
-    width: 100%;
-    -webkit-transition: width 0s ease;
-    transition: width 0s ease;
-}
-
-.nav > ul > li > a:after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 1px;
-    width: 100%;
-    background: #3bc1a0;
-    -webkit-transition: width .5s ease;
-    transition: width .5s ease;
-}
-
-
-/**
- * анимируем линию подчеркивания 
- * ссылок при наведении
- */
-
-.nav > ul > li > a:hover:before {
-    width: 0%;
-    background: black;
-    -webkit-transition: width .5s ease;
-    transition: width .5s ease;
-}
-
-.nav > ul > li > a:hover:after {
-    width: 0%;
-    background: transparent;
-    -webkit-transition: width 0s ease;
-    transition: width 0s ease;
-}
-
-
-
-
-a {
-    color: #006b05;
     text-decoration: none;
+    font-size: 24px; /* Увеличиваем размер шрифта */
+    font-weight: bold; /* Делаем текст жирным */
+    margin-right: 20px; /* Добавляем отступы между надписями */
 }
-.btn {
-    -webkit-border-radius: 10em;
-    -moz-border-radius: 10em;
-    -ms-border-radius: 10em;
-    -o-border-radius: 10em;
-    border-radius: 10em;
-    border: 0;
-    color: #fff!important;
-    margin: 6px;
-    white-space: normal!important;
-    word-wrap: break-word;
-		display: inline-block;
-    line-height: 1.25;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    padding: .5rem 1rem;
-    font-size: 1rem;
-    font-weight: 400;
-    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
-    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+
+/* Убираем правый отступ у последней надписи */
+.menu li:last-child a {
+    margin-right: 0;
 }
-.btn {
-	  -webkit-transition: box-shadow .2s ease-out;
-	  -moz-transition: box-shadow .2s ease-out;
-		-ms-transition: box-shadow .2s ease-out;
-    transition: box-shadow .2s ease-out;
-}
-.btn:hover {
-	  -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15);
-	  -moz-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15);
-	  box-shadow: 0 5px 11px 0 rgba(0,0,0,.18),0 4px 15px 0 rgba(0,0,0,.15);
-}
-.btn-primary {
-	  border: 2px solid #2BBBAD;
-    color: #00695c!important;
+
+/* Стили для кнопки "Заказать звонок" */
+.order-btn {
     background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 0 9px 0 0;
 }
 
-.btn-secondary {
-    border: 2px solid #00C851;
-    color: #007E33!important;
-    background-color: transparent;
+/* Стили для логотипа */
+.logo {
+    max-width: 300px; /* Максимальная ширина логотипа */
+    max-height: 100px; /* Максимальная высота логотипа */
+    width: auto; /* Автоматическое вычисление ширины */
+    height: auto; /* Автоматическое вычисление высоты */
+    color: white;
+    font-size: 30px;
+    margin: 0 0 0 7px;
 }
 
 
 
-.nav {
-  background-image: url(''); /* ваш путь к иконке */
-  background-size: cover; /* чтобы иконка заполняла всю область */
-  background-repeat: no-repeat; /* чтобы иконка не повторялась */
+
+
+
+
+
+
+
+/* Стили для корзины */
+.cart {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 70px auto 0; /* Центрируем корзину по горизонтали */
+    max-width: 600px; /* Устанавливаем максимальную ширину корзины */
+    background-color: #f4f4f4; /* Цвет фона корзины */
+    text-align: center; /* Выравниваем текст по центру в корзине */
+    width: 90%;
 }
 
-.nav-toggle {
-  display: block;
-   height: 28px;
-    width: 22px;
-  cursor: pointer; /* изменение курсора при наведении */
+.cart-item {
+    margin-bottom: 20px; /* Отступ между товарами в корзине */
+    padding: 20px; /* Внутренний отступ для каждого товара в корзине */
+    background-color: #e0e0e0; /* Цвет фона товаров в корзине */
+    border-radius: 5px; /* Скругление углов товаров в корзине */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для товаров в корзине */
 }
 
-.nav-toggle:after {
-  content: ''; /* добавляем контент для псевдоэлемента */
-  position: absolute; /* абсолютное позиционирование */
-  top: 0;
+/* Стили для кнопок управления количеством товара */
+.cart-item button {
+    background-color: #bbb; /* Цвет фона кнопок управления количеством товара */
+    color: #fff; /* Цвет текста на кнопках управления количеством товара */
+    border: none; /* Убираем границы кнопок управления количеством товара */
+    padding: 8x 8px; /* Отступы внутри кнопок управления количеством товара */
+    margin-left: 7px; /* Отступ слева от кнопок управления количеством товара */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя на кнопки управления количеством товара */
+    border-radius: 3px; /* Скругляем углы кнопок управления количеством товара */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для кнопок управления количеством товара */
+}
+
+.cart-item button:hover {
+    background-color: #999; /* Изменяем цвет фона кнопок управления количеством товара при наведении */
+}
+
+/* Стили для общей стоимости и кнопки оформления заказа */
+.cart-total {
+    margin-top: 20px; /* Отступ сверху от общей стоимости */
+    text-align: right; /* Выравниваем текст по правому краю */
+}
+
+.checkout-button {
+    background-color: #4CAF50; /* Цвет фона кнопки оформления заказа */
+    color: white; /* Цвет текста на кнопке оформления заказа */
+    border: none; /* Убираем границу кнопки оформления заказа */
+    padding: 15px 30px; /* Отступы внутри кнопки оформления заказа */
+    margin-top: 20px; /* Отступ сверху от кнопки оформления заказа */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя */
+    border-radius: 3px; /* Скругляем углы кнопки оформления заказа */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для кнопки оформления заказа */
+}
+
+.checkout-button:hover {
+    background-color: #45a049; /* Изменяем цвет фона кнопки оформления заказа при наведении */
+}
+
+/* Стили для иконки корзины */
+#cart-icon {
+    position: fixed; /* Фиксируем иконку корзины */
+    top: 30px; /* Отступ от верхнего края */
+    right: 30px; /* Отступ от правого края */
+    width: 50px; /* Ширина иконки корзины */
+    height: 50px; /* Высота иконки корзины */
+    display: flex; /* Отображаем иконку корзины как flex-контейнер */
+    justify-content: center; /* Выравниваем содержимое по центру по горизонтали */
+    align-items: center; /* Выравниваем содержимое по центру по вертикали */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя */
+    z-index: 999; /* Устанавливаем наивысший уровень z-index, чтобы иконка корзины была выше других элементов */
+    background-image: url('/img/cart.png'); /* Устанавливаем изображение иконки корзины */
+    background-size: cover; /* Масштабируем изображение, чтобы оно полностью покрывало элемент */
+    background-repeat: no-repeat; /* Отключаем повторение изображения */
+}
+
+#cart-count {
+    position: absolute; /* Позиционируем счетчик корзины абсолютно относительно родительского элемента */
+    top: -10px; /* Отступ от верхнего края */
+    right: -18px; /* Отступ от правого края */
+    background-color: red; /* Цвет фона счетчика корзины */
+    color: white; /* Цвет текста счетчика корзины */
+    font-weight: bold;
+    font-size: 16px; /* Размер шрифта счетчика корзины */
+    padding: 5px; /* Отступы внутри счетчика корзины */
+    border-radius: 50%; /* Скругляем углы счетчика корзины, чтобы он выглядел как круг */
+    min-width: 20px; /* Минимальная ширина счетчика корзины */
+    text-align: center; /* Выравниваем текст по центру */
+    z-index: 1000; /* Устанавливаем наивысший уровень z-index, чтобы счетчик корзины был выше иконки корзины */
+}
+
+.product {
+    max-width: 300px; /* Максимальная ширина карточки товара */
+    margin: 0 auto 20px; /* Центрируем карточку товара и добавляем отступ между ними */
+    padding: 20px; /* Внутренний отступ для карточки товара */
+    background-color: #fff; /* Цвет фона карточки товара */
+    border-radius: 10px; /* Скругляем углы карточки товара */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для карточки товара */
+    text-align: center; /* Выравниваем текст внутри карточки товара по центру */
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.product img {
+    max-width: 100%; /* Максимальная ширина изображения в карточке товара */
+    border-radius: 5px; /* Скругляем углы изображения */
+    margin-bottom: 10px; /* Отступ снизу от изображения */
+}
+
+.product h3 {
+    margin-bottom: 10px; /* Отступ снизу от заголовка */
+}
+
+.product p {
+    margin-bottom: 15px; /* Отступ снизу от текста */
+}
+
+.product button {
+    background-color: black; /* Цвет фона кнопки в карточке товара */
+    color: white; /* Цвет текста на кнопке в карточке товара */
+    border: none; /* Убираем границу кнопки в карточке товара */
+    padding: 10px 20px; /* Отступы внутри кнопки в карточке товара */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя на кнопке в карточке товара */
+    border-radius: 3px; /* Скругляем углы кнопки в карточке товара */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для кнопки в карточке товара */
+}
+
+.product button:hover {
+    background-color: #140F0B; /* Изменяем цвет фона кнопки при наведении на кнопку в карточке товара */
+}
+
+.product button:active {
+    background-color: #808080;
+    color: black;
+}
+
+.btnadd {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.products-container {
+    display: flex; /* Отображаем контейнер товаров как flex-контейнер */
+    justify-content: center; /* Выравниваем содержимое по центру по горизонтали */
+    flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку */
+}
+
+/* Стили для карточек товаров */
+.product {
+    flex: 0 0 calc(33.33% - 20px); /* Задаем ширину каждой карточки товара, с учетом отступов */
+    margin: 10px; /* Отступ между карточками товаров */
+    border: 1px solid #ccc; /* Граница карточки товара */
+    border-radius: 5px; /* Скругляем углы карточки товара */
+    text-align: center; /* Выравниваем текст внутри карточки товара по центру */
+}
+
+.product img {
+    max-width: 100%; /* Максимальная ширина изображения в карточке товара */
+    height: auto; /* Автоматическая высота изображения в карточке товара */
+}
+
+
+
+
+
+
+.button-checkout {
+    background-color: #7f8c8d; /* Цвет фона кнопки оформления заказа */
+    color: #fff; /* Цвет текста на кнопке оформления заказа */
+    padding: 10px 20px; /* Отступы внутри кнопки оформления заказа */
+    border: none; /* Убираем границу кнопки оформления заказа */
+    border-radius: 5px; /* Скругляем углы кнопки оформления заказа */
+    font-size: 16px; /* Размер шрифта кнопки оформления заказа */
+    text-transform: uppercase; /* Преобразуем текст в верхний регистр */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя на кнопку оформления заказа */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Тень для кнопки оформления заказа */
+}
+
+.button-checkout:hover {
+    background-color: #7f8c8f; /* Изменяем цвет фона кнопки оформления заказа при наведении */
+}
+
+input[type="text"],
+input[type="tel"] {
+    color: #333; /* Цвет текста в полях ввода */
+    background-color: #f5f5f5; /* Цвет фона полей ввода */
+    border: 1px solid #ccc; /* Граница полей ввода */
+    border-radius: 5px; /* Скругление углов полей ввода */
+    padding: 9.2px 13.8px; /* Внутренние отступы в полях ввода */
+    margin-bottom: 11.5px; /* Отступ снизу от полей ввода */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Тень для полей ввода */
+    transition: border-color 0.3s ease-in-out; /* Анимация изменения цвета границы поля ввода */
+    font-size: 17px; /* Размер шрифта в полях ввода */
+    text-align: left; /* Выравниваем текст в полях ввода по левому краю */
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus {
+    border-color: #007bff; /* Цвет границы поля ввода при фокусировке */
+}
+
+
+
+.mycart {
+
+font-weight: 900;
+font-style: bold;
+
+}
+
+/* Добавляем стили для элементов корзины */
+.cart-item-name {
+    font-size: 15px; /* Устанавливаем размер текста для названия товара */
+    font-weight: bold;
+}
+
+.total-price-text {
+    font-size: 17px; /* Устанавливаем размер текста для общей стоимости */
+    font-weight: bold; /* Делаем текст жирным */
+}
+
+.deliveryMessage {
+    font-size: 18px; /* Устанавливаем размер текста */
+    font-weight: bold; /* Делаем текст жирным */
+}
+
+
+
+/* Модальное окно */
+
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.content p {
+  margin: 15px 0;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+
+.header__inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__logo p {
+  color: #fff;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+}
+
+.header__button {
+ 
+  position: fixed; /* Фиксируем иконку корзины */
+   margin: 70px auto 0;
+    top: 30px; /* Отступ от верхнего края */
+    right: 30px; /* Отступ от правого края */
+    width: 50px; /* Ширина иконки корзины */
+    height: 50px; /* Высота иконки корзины */
+    display: flex; /* Отображаем иконку корзины как flex-контейнер */
+    justify-content: center; /* Выравниваем содержимое по центру по горизонтали */
+    align-items: center; /* Выравниваем содержимое по центру по вертикали */
+    cursor: pointer; /* Устанавливаем курсор в виде указателя */
+    z-index: 999; /* Устанавливаем наивысший уровень z-index, чтобы иконка корзины была выше других элементов */
+    background-image: url('img/cart.png'); /* Устанавливаем изображение иконки корзины */
+    background-size: cover; /* Масштабируем изображение, чтобы оно полностью покрывало элемент */
+    background-repeat: no-repeat; /* Отключаем повторение изображения */
+}
+
+.header__button:hover {
+  background: ;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.modal {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: .3s;
+  transition: .3s;
+  top: -1000px;
+  right: 0;
+  bottom: 0;
   left: 0;
-  width: 114%;
-  height: 100%;
-  background-image: url('img/iconburger.svg'); /* ваш путь к фоновой картинке */
-  background-size: cover; /* чтобы фон заполнял всю область */
-  background-repeat: no-repeat; /* чтобы фон не повторялся */
-  z-index: -1; /* помещаем псевдоэлемент под контент */
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  overflow-y: scroll;
+  padding: 60px 15px;
+}
+
+.modal_active {
+  position: fixed;
+  top: 0;
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.modal__content {
+  width: 100%;
+  max-width: 500px;
+  padding: 14px;
+  background: #f9f9f9;
+  -webkit-box-shadow: 0 5px 15px black;
+          box-shadow: 0 5px 15px black;
+  border-radius: 3px;
+  position: relative;
+}
+
+.modal__close-button {
+  background: #ff0000;
+  height: 30px;
+  width: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  outline: none;
+}
+
+.modal__close-button:hover {
+  -webkit-transition: .3s;
+  transition: .3s;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.modal__title {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin: 0 0 15px;
+}
+
+.modal__description {
+  font-size: 1.125rem;
+}
+/*# sourceMappingURL=style.css.map */
+
+/* Оформление надписи общая стоимость */
+.total-price-text {
+    background-color: lightgray; /* Устанавливаем серый фон */
+    padding: 5px 10px; /* Добавляем небольшие отступы вокруг текста */
+    border-radius: 5px; /* Делаем закругленные углы рамки */
+}
+
+/* Стили для ссылки */
+#back-to-shopping {
+    display: inline-block; /* Делаем ссылку блочным элементом */
+    margin: 20px auto; /* Центрируем ссылку по горизонтали и задаем отступы по вертикали */
+}
+
+/* Стили для кнопки внутри ссылки */
+#back-to-shopping button {
+    padding: 20px 30px; /* Задаем отступы внутри кнопки */
+    background-color: grey; /* Задаем серый цвет фона */
+    color: white; /* Задаем белый цвет текста */
+    border: none; /* Убираем границу кнопки */
+    border-radius: 5px; /* Задаем скругленные углы */
+    cursor: pointer; /* Задаем указательный курсор при наведении */
+    font-size: 16px; /* Задаем размер шрифта */
+}
+
+/* Изменение стилей кнопки при наведении */
+#back-to-shopping button:hover {
+    background-color: darkgrey; /* Изменяем цвет фона кнопки при наведении */
 }
 
 
-.nav-toggle:after {
-    content: '';
-    text-decoration: none;
+/* Медиа-запрос для мобильных устройств (ширина меньше 768px) */
+@media only screen and (max-width: 800px) {
+    .products-container {
+        flex-direction: column; /* Карточки будут выстраиваться вертикально */
+        align-items: center; /* Выравниваем карточки по центру по горизонтали */
+    }
+    
+    .product {
+        max-width: 76%;
+         /* Каждая карточка будет занимать всю доступную ширину */
+    }
+.cart-item-name {
+      font-size: 12px;
+}
+      
+
+    
 }
 
-.nav ul {
-  color: black; important!
+
+/* ошибка в молях ввода  */
+.error-message {
+    color: red;
+    display: none; /* Начинайте с состояния "скрыто" */
+    /* Дополнительные стили для позиционирования и шрифта при необходимости */
 }
+
+
+
+.error-placeholder::placeholder {
+    color: red;
+}
+
+
+
+
+карточка рабочая !!!!!!!!!!!!!!
+
+
+
+        <div class="product" data-id="1" data-name="Товар 1" data-price="100">
+            <h2>Товар 1</h2>
+            <img src="img/pizza1.jpg" alt="Товар 1">
+            <p class="myprice">Цена: $10</p>
+            <!-- Добавляем элементы для выбора количества -->
+            <div>
+                <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+                <span class="quantity" data-quantity="1">1</span>
+                <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+            </div>
+            <button class="btnadd" onclick="addToCart('Товар 1', 100, this)">в корзину</button>
+        </div>
+
+
+        код js !!!!!!!!!!!
+
+
+        let cartItems = [];
+
+// Функция для обновления количества товаров в корзине и отображения на иконке
+const updateCartIconCount = () => {
+    // Получаем элемент иконки корзины
+    const cartIcon = document.getElementById('cart-icon');
+    // Находим элемент, отображающий количество товаров в корзине внутри иконки
+    const cartCountElement = cartIcon.querySelector('#cart-count');
+    // Вычисляем общее количество товаров в корзине путем суммирования количества каждого товара в массиве cartItems
+    const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+    // Устанавливаем текстовое содержимое элемента cartCountElement равным общему количеству товаров в корзине
+    cartCountElement.textContent = cartItemCount;
+    // Устанавливаем стиль отображения элемента cartCountElement в зависимости от того, есть ли товары в корзине
+    cartCountElement.style.display = cartItemCount > 0 ? 'inline-block' : 'none';
+};
+
+
+// Функция для отображения содержимого корзины
+const renderCart = () => {
+    // Получаем элемент, в который будем отображать товары в корзине
+    const cartElement = document.getElementById('cart-items');
+    // Получаем элемент, в который будем отображать общую стоимость товаров
+    const totalPriceElement = document.getElementById('total-price');
+    // Очищаем содержимое элемента cartElement перед началом отображения новых товаров
+    cartElement.innerHTML = '';
+    // Инициализируем переменную для хранения общей стоимости товаров в корзине
+    let totalPrice = 0;
+
+    // Проходимся по каждому товару в корзине
+    cartItems.forEach((item, index) => {
+        // Деструктурируем объект товара, чтобы получить его свойства
+        const { name, price, quantity } = item;
+        // Вычисляем общую стоимость данного товара (цена * количество)
+        const itemTotal = price * quantity;
+        // Создаем новый элемент для отображения товара в корзине
+        const itemElement = document.createElement('div');
+        // Добавляем класс 'cart-item' к элементу товара
+        itemElement.classList.add('cart-item');
+
+
+        // Создаем элемент для названия товара
+        const itemNameElement = document.createElement('span');
+        itemNameElement.textContent = `${name} - ${price} руб. x ${quantity}`;
+        itemNameElement.classList.add('cart-item-name'); // Добавляем класс для стилизации
+        itemElement.appendChild(itemNameElement);
+
+        // Создаем кнопки для управления количеством товара
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Удалить';
+        removeButton.onclick = () => removeFromCart(index);
+        removeButton.style.backgroundColor = 'black'; // Устанавливаем цвет фона кнопки черным
+        removeButton.style.color = 'white'; // Устанавливаем цвет текста кнопки белым
+        itemElement.appendChild(removeButton);
+        removeButton.style.padding = '7px'; // Устанавливаем внутренний отступ в 7px
+
+        const decreaseButton = document.createElement('button');
+        decreaseButton.textContent = '-';
+        decreaseButton.onclick = () => decreaseQuantity(index);
+        decreaseButton.style.backgroundColor = 'black'; // Устанавливаем цвет фона кнопки черным
+        decreaseButton.style.color = 'white'; // Устанавливаем цвет текста кнопки белым
+        itemElement.appendChild(decreaseButton);
+        decreaseButton.style.padding = '3px 7px'; // Устанавливаем внутренний отступ
+
+        const increaseButton = document.createElement('button');
+        increaseButton.textContent = '+';
+        increaseButton.onclick = () => increaseQuantity(index);
+        increaseButton.style.backgroundColor = 'black'; // Устанавливаем цвет фона кнопки черным
+        increaseButton.style.color = 'white'; // Устанавливаем цвет текста кнопки белым
+        itemElement.appendChild(increaseButton);
+        increaseButton.style.padding = '3px 7px'; // Устанавливаем внутренний отступ
+
+        cartElement.appendChild(itemElement);
+        totalPrice += itemTotal;
+
+    });
+
+    totalPriceElement.textContent = `Общая стоимость: ${totalPrice} руб.`;
+
+    // Проверяем, существует ли уже элемент с текстом "Стоимость доставки вам сообщит Диспетчер"
+    if (!document.querySelector('.deliveryMessage')) {
+        // Если не существует, добавляем его
+        totalPriceElement.insertAdjacentHTML('afterend', '<p class="deliveryMessage">Стоимость доставки вам сообщит Диспетчер</p>');
+    }
+
+    totalPriceElement.classList.add('total-price-text'); // Добавляем класс для стилизации общей стоимости
+    updateCartIconCount(); // Вызываем функцию обновления счетчика товара
+};
+
+
+
+
+
+// При загрузке страницы проверяем наличие сохраненных данных в локальном хранилище
+window.onload = () => {
+    // Получаем данные из локального хранилища
+    const savedCartItems = JSON.parse(localStorage.getItem('cartItems'));
+    // Если есть сохраненные данные, загружаем их в переменную cartItems
+    if (savedCartItems) {
+        cartItems = savedCartItems;
+    }
+    // Отображаем корзину
+    renderCart();
+};
+
+
+//11111111111111111111
+
+
+
+
+
+// Функция для добавления товара в корзину
+const addToCart = (name, price, button) => {
+    // Находим родительский элемент товара, к которому привязана кнопка добавления в корзину
+    const card = button.closest('.product');
+    // Получаем количество товара, указанное на карточке товара
+    const quantity = parseInt(card.querySelector('.quantity').textContent);
+    // Поиск товара в корзине по его имени
+    const existingItem = cartItems.find(item => item.name === name);
+    // Если товар уже существует в корзине, увеличиваем его количество
+    if (existingItem) {
+        existingItem.quantity += quantity;
+    } else {
+        // Если товара нет в корзине, добавляем его в массив cartItems
+        cartItems.push({ name, price, quantity });
+    }
+    // Сохраняем обновленный массив товаров в локальное хранилище
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // Обновляем счетчик на иконке корзины
+    updateCartIconCount();
+
+    // Вызываем функцию для отображения содержимого корзины после обновления
+    renderCart();
+};
+
+
+
+
+
+
+// Функция для удаления товара из корзины
+const removeFromCart = (index) => {
+    cartItems.splice(index, 1);
+    // Сохраняем данные в локальное хранилище
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    renderCart();
+
+    // Вызываем функцию для обновления счетчика на иконке корзины
+    updateCartIconCount();
+};
+
+
+
+// Функция для уменьшения количества товара в корзине
+const decreaseQuantity = (index) => {
+    if (cartItems[index].quantity > 1) {
+        cartItems[index].quantity--;
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        renderCart();
+        updateCartIconCount();
+    }
+};
+
+// Функция для увеличения количества товара в корзине
+const increaseQuantity = (index) => {
+    cartItems[index].quantity++;
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    renderCart();
+    updateCartIconCount();
+};
+
+
+
+
+
+// Функция для уменьшения количества товара на карточке
+const decreaseQuantityCard = (button) => {
+    const card = button.closest('.product');
+    const quantityElement = card.querySelector('.quantity');
+    let quantity = parseInt(quantityElement.textContent);
+    if (quantity > 1) {
+        quantity--;
+        quantityElement.textContent = quantity;
+    }
+    // Назначаем черный цвет фона кнопке
+    button.style.backgroundColor = 'black';
+};
+
+// Функция для увеличения количества товара на карточке
+const increaseQuantityCard = (button) => {
+    const card = button.closest('.product');
+    const quantityElement = card.querySelector('.quantity');
+    let quantity = parseInt(quantityElement.textContent);
+    quantity++;
+    quantityElement.textContent = quantity;
+    // Назначаем черный цвет фона кнопке
+    button.style.backgroundColor = 'black';
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Функция для перехода на главную страницу
+const goToMainPage = () => {
+    // Проверяем, находимся ли мы уже на главной странице
+    if (window.location.href !== 'index.html') {
+        // Если нет, перенаправляем пользователя на главную страницу
+        window.location.href = 'index.html';
+    }
+};
+
+
+
+
+
+
+// Функция для проверки корректности введенного имени
+function isValidName(name) {
+    const namePattern = /^[a-zA-Zа-яА-Я ]+$/;
+    return namePattern.test(name);
+}
+
+// Функция для проверки корректности введенного телефона
+function isValidPhone(phone) {
+    const phonePattern = /^\+?\d{10,15}$/;
+    return phonePattern.test(phone);
+}
+
+// Функция для проверки на пустоту полей
+function isNotEmpty(value) {
+    return value && value.trim() !== '';
+}
+
+const checkout = () => { // Определение функции checkout
+    const checkoutButton = document.getElementById('checkout-button'); // Получение кнопки оформления заказа
+    const nameInput = document.getElementById('name'); // Получение поля ввода имени
+    const phoneInput = document.getElementById('phone'); // Получение поля ввода телефона
+    const addressInput = document.getElementById('address'); // Получение поля ввода адреса
+
+    const name = nameInput.value; // Получение значения имени из поля ввода
+    const phone = phoneInput.value; // Получение значения телефона из поля ввода
+    const address = addressInput.value; // Получение значения адреса из поля ввода
+
+    // Устанавливаем пустые сообщения об ошибках перед проверкой
+    nameInput.placeholder = ''; // Удаление текста placeholder для имени
+    phoneInput.placeholder = ''; // Удаление текста placeholder для телефона
+    addressInput.placeholder = ''; // Удаление текста placeholder для адреса
+
+    // Проверяем поля на пустоту и корректность данных
+    if (!isNotEmpty(name) || !isValidName(name)) { // Если имя пустое или некорректное
+        nameInput.placeholder = 'ВВЕДИТЕ ИМЯ'; // Установка текста placeholder для имени
+        nameInput.classList.add('error-placeholder'); // Добавление класса для стилизации ошибочного поля
+        nameInput.style.borderColor = 'red'; // Установка красной рамки для ошибочного поля
+        return; // Прекращаем выполнение функции
+    } else { // Иначе
+        nameInput.classList.remove('error-placeholder'); // Удаляем класс ошибки, если он был добавлен ранее
+        nameInput.style.borderColor = ''; // Удаляем красную рамку, если ошибка была исправлена
+    }
+
+    if (!isNotEmpty(phone) || !isValidPhone(phone)) { // Если телефон пустой или некорректный
+        phoneInput.placeholder = 'ВВЕДИТЕ ТЕЛЕФОН !'; // Установка текста placeholder для телефона
+        phoneInput.classList.add('error-placeholder'); // Добавление класса для стилизации ошибочного поля
+        phoneInput.style.borderColor = 'red'; // Установка красной рамки для ошибочного поля
+        return; // Прекращаем выполнение функции
+    } else { // Иначе
+        phoneInput.classList.remove('error-placeholder'); // Удаляем класс ошибки, если он был добавлен ранее
+        phoneInput.style.borderColor = ''; // Удаляем красную рамку, если ошибка была исправлена
+    }
+
+    if (!isNotEmpty(address)) { // Если адрес пустой
+        addressInput.placeholder = 'ВВЕДИТЕ АДРЕС !'; // Установка текста placeholder для адреса
+        addressInput.classList.add('error-placeholder'); // Добавление класса для стилизации ошибочного поля
+        addressInput.style.borderColor = 'red'; // Установка красной рамки для ошибочного поля
+        return; // Прекращаем выполнение функции
+    } else { // Иначе
+        addressInput.classList.remove('error-placeholder'); // Удаляем класс ошибки, если он был добавлен ранее
+        addressInput.style.borderColor = ''; // Удаляем красную рамку, если ошибка была исправлена
+    }
+    // Меняем текст и стиль кнопки
+    checkoutButton.textContent = 'ОТПРАВКА';
+    checkoutButton.style.backgroundColor = 'red';
+    checkoutButton.style.width = '150px';
+    checkoutButton.style.margin = '0 auto';
+    checkoutButton.style.display = 'block';
+    checkoutButton.style.fontSize = "20px";
+    checkoutButton.style.fontWeight = "bold";
+
+    // Отправляем заказ в телеграм
+    sendOrderToTelegram(name, phone, address);
+
+    setTimeout(() => {
+        checkoutButton.textContent = 'Готово! Сейчас мы вам перезвоним для сверки заказа.';
+        checkoutButton.style.backgroundColor = '';
+        checkoutButton.style.width = '';
+        // Очищаем поля ввода
+        nameInput.value = '';
+        phoneInput.value = '';
+        addressInput.value = '';
+    }, 1000);
+
+    // Очищаем корзину и удаляем данные из локального хранилища
+    cartItems = [];
+    localStorage.removeItem('cartItems');
+    renderCart();
+
+    // Показываем кнопку "Вернуться к покупкам" и назначаем ей обработчик события для перехода на главную страницу
+    const backButton = document.getElementById('back-to-shopping');
+    backButton.style.display = 'block';
+    backButton.addEventListener('click', goToMainPage);
+};
+
+
+
+
+
+// Обновленная функция отправки заказов, которая теперь принимает параметры
+const sendOrderToTelegram = (name, phone, address) => {
+    // Создаем сообщение с данными о заказе и информацией о клиенте
+    let message = `Новый заказ!\n\nИмя: ${name}\nТелефон: ${phone}\nАдрес: ${address}\n\n`;
+    let totalPrice = calculateTotalPrice();
+
+    cartItems.forEach(({ name, price, quantity }) => {
+        const itemTotal = price * quantity;
+        message += `${name} - ${price} руб. x ${quantity} = ${itemTotal} руб.\n`;
+    });
+
+    message += `\nОбщая стоимость: ${totalPrice} руб.`;
+
+    // Отправляем сообщение в телеграм
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://api.telegram.org/bot5790561769:AAFXHNyxsGSq2z7I0ds6HhSKaNisZ416m8U/sendMessage', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({ chat_id: '-1002094926558', text: message }));
+};
+
+
+
+
+//11111111111111
+
+// Функция для вычисления общей стоимости заказа
+const calculateTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+};
+
+// Функция для открытия корзины
+const openCart = () => {
+    window.location.href = 'cart.html'; // Перенаправляет пользователя на страницу корзины (cart.html)
+};
+
+// Функция для обновления счетчика товара
+const updateCartCount = () => {
+    // ваша функция для обновления счетчика товара
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderCart();
+});
+
+
+
+
+///Проверка модального окна 
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Кнопка по которой происходит клик
+    let callBackButton = document.getElementById('callback-button');
+
+    // Модальное окно, которое необходимо открыть
+    let modal1 = document.getElementById('modal-1');
+
+    // Кнопка "закрыть" внутри модального окна
+    let closeButton = modal1.getElementsByClassName('modal__close-button')[0];
+
+    // Тег body для запрета прокрутки
+    let tagBody = document.getElementsByTagName('body');
+
+    callBackButton.onclick = function (e) {
+        e.preventDefault();
+        modal1.classList.add('modal_active');
+        tagBody.classList.add('hidden');
+    }
+
+    closeButton.onclick = function (e) {
+        e.preventDefault();
+        modal1.classList.remove('modal_active');
+        tagBody.classList.remove('hidden');
+    }
+
+    modal1.onmousedown = function (e) {
+        let target = e.target;
+        let modalContent = modal1.getElementsByClassName('modal__content')[0];
+        if (e.target.closest('.' + modalContent.className) === null) {
+            this.classList.remove('modal_active');
+            tagBody.classList.remove('hidden');
+        }
+    };
+
+    // Вызов модального окна несколькими кнопками на странице
+    let buttonOpenModal1 = document.getElementsByClassName('get-modal_1');
+
+    for (let button of buttonOpenModal1) {
+        button.onclick = function (e) {
+            e.preventDefault();
+            modal1.classList.add('modal_active');
+            tagBody.classList.add('hidden');
+        }
+    }
+
+});
+
+
+
+
+
+
+Чтобы добавить функционал для карточки с пиццей, который будет учитывать дополнительные ингредиенты при расчете цены
+
+

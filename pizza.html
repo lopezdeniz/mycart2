@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="humburger.css">
     <script src="index.js"></script>
 </head>
 
 <body>
     <header class="header">
+        <div class="logo">
+            Mister Pizza
+        </div>
         <nav>
             <ul class="menu">
                 <li><a href="#">Главная</a></li>
@@ -35,59 +39,119 @@
 
 
     <div class="products-container">
-
-        <div class="product" data-id="1" data-name="Товар 1" data-price="100">
-            <h2>Товар 1</h2>
-            <img src="img/pizza1.jpg" alt="Товар 1">
-            <p class="myprice">Цена: $10</p>
-            <!-- Добавляем элементы для выбора количества -->
-            <div>
-                <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
-                <span class="quantity" data-quantity="1">1</span>
-                <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
-            </div>
-            <button class="btnadd" onclick="addToCart('Товар 1', 100, this)">в корзину</button>
-        </div>
-
-        <div class="product" data-id="1" data-name="Товар 2" data-price="50">
-            <h2>Товар 2</h2>
-            <img src="img/pizza2.jpeg" alt="Товар 2">
-            <p class="myprice">Цена: $50</p>
-            <!-- Добавляем элементы для выбора количества -->
-            <div>
-                <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
-                <span class="quantity" data-quantity="1">1</span>
-                <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
-            </div>
-            <button class="btnadd" onclick="addToCart('Товар 2', 50, this)">в корзину</button>
-        </div>
+<!-- Тест карточки  с выбором начало  -->
 
 
-        <div class="product" data-id="1" data-name="Товар 3" data-price="30">
-            <h2>Товар 3</h2>
-            <img src="img/pizza3.jpeg" alt="Товар 3">
-            <p class="myprice">Цена: $30</p>
-            <!-- Добавляем элементы для выбора количества -->
-            <div>
-                <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
-                <span class="quantity" data-quantity="1">1</span>
-                <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
-            </div>
-            <button class="btnadd" onclick="addToCart('Товар 3', 30, this)">в корзину</button>
-        </div>
 
-        <div class="product" data-id="1" data-name="Товар 4" data-price="40">
-            <h2>Товар 2</h2>
-            <img src="img/pizza1.jpg" alt="Товар 4">
-            <p class="myprice">Цена: $40</p>
-            <!-- Добавляем элементы для выбора количества -->
-            <div>
-                <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
-                <span class="quantity" data-quantity="1">1</span>
-                <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
-            </div>
-            <button class="btnadd" onclick="addToCart('Товар 4', 40, this)">в корзину</button>
-        </div>
+
+
+
+<div class="product" data-id="1" data-name="Пицца" data-price="100">
+    <h2>Пицца</h2>
+    <img src="img/pizza1.jpg" alt="Пицца">
+    <p class="myprice">Цена: $100</p>
+    <div>
+        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+        <span class="quantity" data-quantity="1">1</span>
+        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+    </div>
+ <br>
+    <div class="size-buttons">
+        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
+        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
+        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
+    </div>
+    <br>
+    <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
+    <div class="toppings-menu" style="display:none;">
+        <label><input type="checkbox" name="toppings" value="сыр" data-price="2"> Сыр - $2</label><br>
+        <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
+    </div>
+    <br>
+    <p class="total-price">Общая стоимость: $100</p>
+    <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
+</div>
+
+
+
+
+<div class="product" data-id="1" data-name="Пицца" data-price="100">
+    <h2>Пицца</h2>
+    <img src="img/pizza1.jpg" alt="Пицца">
+    <p class="myprice">Цена: $100</p>
+    <div>
+        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+        <span class="quantity" data-quantity="1">1</span>
+        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+    </div>
+    <br>
+    <div class="size-buttons">
+        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
+        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
+        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
+    </div>
+    <br>
+    <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
+    <div class="toppings-menu" style="display:none;">
+        <label><input type="checkbox" name="toppings" value="сыр" data-price="2"> Сыр - $2</label><br>
+        <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
+    </div>
+    <br>
+    <p class="total-price">Общая стоимость: $100</p>
+    <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
+</div>
+
+
+<div class="product" data-id="1" data-name="Пицца" data-price="100">
+    <h2>Пицца</h2>
+    <img src="img/pizza1.jpg" alt="Пицца">
+    <p class="myprice">Цена: $100</p>
+    <div>
+        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+        <span class="quantity" data-quantity="1">1</span>
+        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+    </div>
+    <br>
+    <div class="size-buttons">
+        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
+        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
+        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
+    </div>
+    <br>
+    <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
+    <div class="toppings-menu" style="display:none;">
+        <label><input type="checkbox" name="toppings" value="сыр" data-price="2"> Сыр - $2</label><br>
+        <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
+    </div>
+    <br>
+    <p class="total-price">Общая стоимость: $100</p>
+    <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
+</div>
+
+
+
+
+
+
+<!-- Тест карточки  с выбором конец -->
+
+
+        
+<div class="product" data-id="1" data-name="Товар 2" data-price="50">
+    <h2>Товар 2</h2>
+    <img src="img/pizza2.jpeg" alt="Товар 2">
+    <p class="myprice">Цена: $50</p>
+    <div>
+        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+        <span class="quantity" data-quantity="1">1</span>
+        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+    </div>
+    <button class="btnadd" onclick="addToCart('Товар 2', 50, this)">В корзину</button>
+</div>
+
+
+
+       
 
 
 
