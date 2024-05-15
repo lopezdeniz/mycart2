@@ -43,19 +43,21 @@
 
 
 
-
-
-
 <div class="product" data-id="1" data-name="Пицца" data-price="100">
     <h2>Пицца</h2>
-    <img src="img/pizza1.jpg" alt="Пицца">
+    <div class="img-container" onclick="toggleOverlay(this)">
+        <img src="img/pizza1.jpg" alt="Пицца">
+        <div class="overlay">
+            <p>Подробнее о Пицце <br> пицца соус (томаты базилик орегано чеснок), моцарелла для пиццы, колбаса "Пепперони"</p>
+        </div>
+    </div>
     <p class="myprice">Цена: $100</p>
     <div>
         <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
         <span class="quantity" data-quantity="1">1</span>
         <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
     </div>
- <br>
+    <br>
     <div class="size-buttons">
         <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
         <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
@@ -71,6 +73,14 @@
     <p class="total-price">Общая стоимость: $100</p>
     <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
 </div>
+
+
+
+
+
+
+
+
 
 
 
