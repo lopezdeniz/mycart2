@@ -1,13 +1,24 @@
-@import url('https://fonts.cdnfonts.com/css/gilroy');
+
 * {
-  font-family:'Gilroy', sans-serif;
+   
+  
+	
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+
+
+
 }
 body {
     margin: 0; /* Убираем внешние отступы */
     padding: 0; /* Убираем внутренние отступы */
-    font-family: 'Poppins';font-size: ;
+
      background-color: #ffffff;
 }
+
+
+
 
 
 
@@ -240,7 +251,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для карточки товара */
     text-align: center; /* Выравниваем текст внутри карточки товара по центру */
     font-size: 20px;
-    font-weight: bold;
+  
 
 }
 
@@ -276,11 +287,26 @@ body {
 }
 
 .btnadd {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 10px;
+    font-size: 20px !important;
+    margin-top: 10px !important;
     padding: 10px 74px !important;
+    background-color: white !important;
+    border: 1.5px solid orange !important; /* Легкий оранжевый цвет рамки */
+    border-radius: 14px !important; /* Закругленные углы */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3) !important; /* Тень */
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 .products-container {
     display: flex; /* Отображаем контейнер товаров как flex-контейнер */
@@ -292,7 +318,7 @@ body {
 .product {
     flex: 0 0 calc(33.33% - 20px); /* Задаем ширину каждой карточки товара, с учетом отступов */
     margin: 10px; /* Отступ между карточками товаров */
-    border: 1px solid #ccc; /* Граница карточки товара */
+    
     border-radius: 5px; /* Скругляем углы карточки товара */
     text-align: center; /* Выравниваем текст внутри карточки товара по центру */
 }
