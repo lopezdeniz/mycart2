@@ -416,3 +416,52 @@ const toggleOverlay = (container) => {
 };
 
 
+
+
+// Полет в корзину
+
+document.addEventListener('DOMContentLoaded', function () {
+    const btnsAddToCart = document.querySelectorAll('.btnadd:not([data-animation="disabled"])');
+    const cartIcon = document.getElementById('cart-icon');
+
+    btnsAddToCart.forEach(btn => {
+        btn.addEventListener('click', function (event) {
+            const product = event.target.closest('.product');
+            const productName = product.querySelector('h2').innerText;
+            const productImage = product.querySelector('img');
+            const imageClone = productImage.cloneNode(true);
+            const imageRect = productImage.getBoundingClientRect();
+            const x = imageRect.left + imageRect.width / 2;
+            const y = imageRect.top + imageRect.height / 2;
+            const xEnd = cartIcon.getBoundingClientRect().left;
+            const yEnd = cartIcon.getBoundingClientRect().top;
+
+            imageClone.style.position = 'fixed';
+            imageClone.style.left = x + 'px';
+            imageClone.style.top = y + 'px';
+            imageClone.style.width = (imageRect.width * 0.2) + 'px'; // Уменьшаем на 30%
+            imageClone.style.height = (imageRect.height * 0.2) + 'px'; // Уменьшаем на 30%
+            imageClone.style.borderRadius = '50%';
+            imageClone.style.transition = 'transform 0.5s ease-out';
+            document.body.appendChild(imageClone);
+
+            setTimeout(() => {
+                imageClone.style.transform = `translate(${xEnd - x}px, ${yEnd - y}px)`;
+            }, 100);
+
+            setTimeout(() => {
+                imageClone.style.opacity = '0';
+                imageClone.style.transform = `translate(0, 0)`;
+            }, 600);
+
+            setTimeout(() => {
+                imageClone.remove();
+            }, 1100);
+        });
+    });
+});
+
+
+
+
+
