@@ -421,7 +421,7 @@ const toggleOverlay = (container) => {
 // Полет в корзину
 
 document.addEventListener('DOMContentLoaded', function () {
-    const btnsAddToCart = document.querySelectorAll('.btnadd');
+    const btnsAddToCart = document.querySelectorAll('.btnadd:not([data-animation="disabled"])');
     const cartIcon = document.getElementById('cart-icon');
 
     btnsAddToCart.forEach(btn => {
@@ -460,6 +460,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
 
 
 
