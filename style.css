@@ -586,3 +586,21 @@ font-style: bold;
 .error-placeholder::placeholder {
     color: red;
 }
+
+
+
+/* CSS для кнопок размера */
+.size-btn {
+    background-color: white; /* Стандартный цвет фона */
+    color: black; /* Стандартный цвет текста */
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.size-btn.selected {
+    background-color: #f0f0f0; /* Цвет фона для выбранной кнопки */
+    color: black; /* Цвет текста для выбранной кнопки */
+    border: 2px solid #000; /* Чуть более жирная граница */
+}

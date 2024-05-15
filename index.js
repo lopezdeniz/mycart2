@@ -130,12 +130,18 @@ const toggleToppingsMenu = (button) => {
 const selectSize = (button) => {
     const card = button.closest('.product');
     const price = button.dataset.price;
-    card.dataset.price = price;
+
+    // Устанавливаем новую цену
     card.querySelector('.myprice').textContent = `Цена: $${price}`;
     card.querySelector('.total-price').textContent = `Общая стоимость: $${price}`;
+
+    // Убираем класс "selected" у всех кнопок размера
     card.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected'));
+
+    // Добавляем класс "selected" к текущей кнопке
     button.classList.add('selected');
 };
+
 
 const decreaseQuantityCard = (button) => {
     const quantityElement = button.nextElementSibling;
