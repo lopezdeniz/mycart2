@@ -1,3 +1,19 @@
+
+.nav {
+    background-color: rgb(255 255 255 / 92%) !important;
+}
+
+.nav > ul > li > a:before {
+    width: 0 !important;
+    background: red !important;
+}
+
+.nav > ul > li > a:after {
+    width: 0 !important;
+    background: transparent !important;
+}
+
+
 .nav {
     /*  ширна произвольная, не стесняйтесь экспериментировать */
     width: 320px;
@@ -21,6 +37,7 @@
     /* поверх других элементов */
     z-index: 2000;
     background-color:rgb(255 255 255 / 10%);
+    
 }
 
 
@@ -265,7 +282,7 @@ body {
     width: 100%; /* Ширина ссылки */
     text-decoration: none; /* Убираем подчеркивание */
     transition: color .5s ease, padding .5s ease; /* Плавные переходы */
-    background-color:#f4f4f4;
+    background-color:#ffff;
 }
 
 /* Стили для ссылок при наведении */
@@ -383,3 +400,5 @@ a {
 }
 
 }
+
+
