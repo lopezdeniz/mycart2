@@ -160,7 +160,7 @@ body {
     padding: 20px;
     margin: 70px auto 0; /* Центрируем корзину по горизонтали */
     max-width: 600px; /* Устанавливаем максимальную ширину корзины */
-    background-color: #f4f4f4; /* Цвет фона корзины */
+    background-color: #f9f9f9; /* Цвет фона корзины */
     text-align: center; /* Выравниваем текст по центру в корзине */
     width: 90%;
 }
