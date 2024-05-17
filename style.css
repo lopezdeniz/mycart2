@@ -373,7 +373,8 @@ input[type="tel"]:focus {
 
 .myclosebutton {
 background-color: #999;
-
+   
+    width: 21px;
 }
 
 .mycart {
@@ -514,28 +515,29 @@ font-style: bold;
 }
 
 .modal__close-button {
-  background: #ff0000;
   height: 39px;
   width: 44px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   border: none;
   position: absolute;
   right: 0;
   top: 0;
-  background: none;
+  background-image: url('img/close.svg'); /* Замените на путь к вашему изображению */
+  background-size: cover; /* или другое значение, в зависимости от размеров вашего изображения */
+  background-repeat: no-repeat;
   cursor: pointer;
-  -webkit-transition: .3s;
   transition: .3s;
   outline: none;
 }
+
 
 .modal__close-button:hover {
   -webkit-transition: .3s;
