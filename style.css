@@ -371,7 +371,10 @@ input[type="tel"]:focus {
     border-color: #007bff; /* Цвет границы поля ввода при фокусировке */
 }
 
+.myclosebutton {
+background-color: #999;
 
+}
 
 .mycart {
 
