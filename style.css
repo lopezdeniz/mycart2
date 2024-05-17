@@ -356,8 +356,8 @@ input[type="tel"] {
     background-color: #f5f5f5; /* Цвет фона полей ввода */
     border: 1px solid #ccc; /* Граница полей ввода */
     border-radius: 5px; /* Скругление углов полей ввода */
-    padding: 9.2px 11.8px; /* Внутренние отступы в полях ввода */
-    margin-bottom: 11.5px; /* Отступ снизу от полей ввода */
+    padding: 9.2px 10.8px; /* Внутренние отступы в полях ввода */
+    margin-bottom: 9.5px; /* Отступ снизу от полей ввода */
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Тень для полей ввода */
     transition: border-color 0.3s ease-in-out; /* Анимация изменения цвета границы поля ввода */
     font-size: 17px; /* Размер шрифта в полях ввода */
