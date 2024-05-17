@@ -536,6 +536,7 @@ font-style: bold;
   cursor: pointer;
   transition: .3s;
   outline: none;
+background-color: #f9f9f9;
 }
 
 
