@@ -89,12 +89,16 @@
         <span class="quantity" data-quantity="1">1</span>
         <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
     </div>
+
+
     
     <div class="size-buttons">
-        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
-        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
-        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
+        <button class="size-btn selected" data-size="26см-250г" data-price="80" onclick="selectSize(this)">26 СМ</button>
+        <button class="size-btn" data-size="30см-350г" data-price="100" onclick="selectSize(this)">30 СМ</button>
+        <button class="size-btn" data-size="40см-550г" data-price="120" onclick="selectSize(this)">40 СМ</button>
     </div>
+
+
   
     <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
     <div class="toppings-menu" style="display:none;">
@@ -102,8 +106,123 @@
         <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
     </div>
    
-    <p class="myprice" style="display:none;">Цена: $100</p>
-    <p class="total-price">Стоимость: $80</p>
+    <p class="myprice" style="display:none;"></p>
+    <p class="total-price">Стоимость: 80&#8381;</p>
+    <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
+</div>
+
+
+<div class="product" data-id="1" data-name="Пицца" data-price="100">
+    <div class="img-container" onclick="toggleOverlay(this)">
+        <img src="img/pizza11.jpg" alt="Пицца">
+        <div class="overlay">
+            <p>Подробнее о Пицце <br> пицца соус (томаты базилик орегано чеснок), моцарелла для пиццы, колбаса
+                "Пепперони"</p>
+        </div>
+    </div>
+    <h2>Пицца</h2>
+
+    <div>
+        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+        <span class="quantity" data-quantity="1">1</span>
+        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+    </div>
+
+
+
+    <div class="size-buttons">
+        <button class="size-btn selected" data-size="26см-250г" data-price="80" onclick="selectSize(this)">26
+            СМ</button>
+        <button class="size-btn" data-size="30см-350г" data-price="100" onclick="selectSize(this)">30 СМ</button>
+        <button class="size-btn" data-size="40см-550г" data-price="120" onclick="selectSize(this)">40 СМ</button>
+    </div>
+
+
+
+    <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
+    <div class="toppings-menu" style="display:none;">
+        <label><input type="checkbox" name="toppings" value="сыр" data-price="2"> Сыр - $2</label><br>
+        <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
+    </div>
+
+    <p class="myprice" style="display:none;"></p>
+    <p class="total-price">Стоимость: 80&#8381;</p>
+    <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
+</div>
+
+<div class="product" data-id="1" data-name="Пицца" data-price="100">
+    <div class="img-container" onclick="toggleOverlay(this)">
+        <img src="img/pizza11.jpg" alt="Пицца">
+        <div class="overlay">
+            <p>Подробнее о Пицце <br> пицца соус (томаты базилик орегано чеснок), моцарелла для пиццы, колбаса
+                "Пепперони"</p>
+        </div>
+    </div>
+    <h2>Пицца</h2>
+
+    <div>
+        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+        <span class="quantity" data-quantity="1">1</span>
+        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+    </div>
+
+
+
+    <div class="size-buttons">
+        <button class="size-btn selected" data-size="26см-250г" data-price="80" onclick="selectSize(this)">26
+            СМ</button>
+        <button class="size-btn" data-size="30см-350г" data-price="100" onclick="selectSize(this)">30 СМ</button>
+        <button class="size-btn" data-size="40см-550г" data-price="120" onclick="selectSize(this)">40 СМ</button>
+    </div>
+
+
+
+    <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
+    <div class="toppings-menu" style="display:none;">
+        <label><input type="checkbox" name="toppings" value="сыр" data-price="2"> Сыр - $2</label><br>
+        <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
+    </div>
+
+    <p class="myprice" style="display:none;"></p>
+    <p class="total-price">Стоимость: 80&#8381;</p>
+    <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
+</div>
+
+<div class="product" data-id="1" data-name="Пицца" data-price="100">
+    <div class="img-container" onclick="toggleOverlay(this)">
+        <img src="img/pizza11.jpg" alt="Пицца">
+        <div class="overlay">
+            <p>Подробнее о Пицце <br> пицца соус (томаты базилик орегано чеснок), моцарелла для пиццы, колбаса
+                "Пепперони"</p>
+        </div>
+    </div>
+    <h2>Пицца</h2>
+
+    <div>
+        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+        <span class="quantity" data-quantity="1">1</span>
+        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+    </div>
+
+
+
+    <div class="size-buttons">
+        <button class="size-btn selected" data-size="26см-250г" data-price="80" onclick="selectSize(this)">26
+            СМ</button>
+        <button class="size-btn" data-size="30см-350г" data-price="100" onclick="selectSize(this)">30 СМ</button>
+        <button class="size-btn" data-size="40см-550г" data-price="120" onclick="selectSize(this)">40 СМ</button>
+    </div>
+
+
+
+    <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
+    <div class="toppings-menu" style="display:none;">
+        <label><input type="checkbox" name="toppings" value="сыр" data-price="2"> Сыр - $2</label><br>
+        <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
+    </div>
+
+    <p class="myprice" style="display:none;"></p>
+    <p class="total-price">Стоимость: 80&#8381;</p>
     <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
 </div>
 
@@ -125,11 +244,16 @@
         <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
     </div>
 
+
+
     <div class="size-buttons">
-        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
-        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
-        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
+        <button class="size-btn selected" data-size="26см-250г" data-price="80" onclick="selectSize(this)">26
+            СМ</button>
+        <button class="size-btn" data-size="30см-350г" data-price="100" onclick="selectSize(this)">30 СМ</button>
+        <button class="size-btn" data-size="40см-550г" data-price="120" onclick="selectSize(this)">40 СМ</button>
     </div>
+
+
 
     <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
     <div class="toppings-menu" style="display:none;">
@@ -137,8 +261,8 @@
         <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
     </div>
 
-    <p class="myprice" style="display:none;">Цена: $100</p>
-    <p class="total-price">Стоимость: $80</p>
+    <p class="myprice" style="display:none;"></p>
+    <p class="total-price">Стоимость: 80&#8381;</p>
     <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
 </div>
 
@@ -159,11 +283,16 @@
         <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
     </div>
 
+
+
     <div class="size-buttons">
-        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
-        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
-        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
+        <button class="size-btn selected" data-size="26см-250г" data-price="80" onclick="selectSize(this)">26
+            СМ</button>
+        <button class="size-btn" data-size="30см-350г" data-price="100" onclick="selectSize(this)">30 СМ</button>
+        <button class="size-btn" data-size="40см-550г" data-price="120" onclick="selectSize(this)">40 СМ</button>
     </div>
+
+
 
     <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
     <div class="toppings-menu" style="display:none;">
@@ -171,111 +300,8 @@
         <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
     </div>
 
-    <p class="myprice" style="display:none;">Цена: $100</p>
-    <p class="total-price">Стоимость: $80</p>
-    <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
-</div>
-
-
-<div class="product" data-id="1" data-name="Пицца" data-price="100">
-    <div class="img-container" onclick="toggleOverlay(this)">
-        <img src="img/pizza11.jpg" alt="Пицца">
-        <div class="overlay">
-            <p>Подробнее о Пицце <br> пицца соус (томаты базилик орегано чеснок), моцарелла для пиццы, колбаса
-                "Пепперони"</p>
-        </div>
-    </div>
-    <h2>Пицца</h2>
-
-    <div>
-        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
-        <span class="quantity" data-quantity="1">1</span>
-        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
-    </div>
-
-    <div class="size-buttons">
-        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
-        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
-        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
-    </div>
-
-    <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
-    <div class="toppings-menu" style="display:none;">
-        <label><input type="checkbox" name="toppings" value="сыр" data-price="2"> Сыр - $2</label><br>
-        <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
-    </div>
-
-    <p class="myprice" style="display:none;">Цена: $100</p>
-    <p class="total-price">Стоимость: $80</p>
-    <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
-</div>
-
-
-
-<div class="product" data-id="1" data-name="Пицца" data-price="100">
-    <div class="img-container" onclick="toggleOverlay(this)">
-        <img src="img/pizza11.jpg" alt="Пицца">
-        <div class="overlay">
-            <p>Подробнее о Пицце <br> пицца соус (томаты базилик орегано чеснок), моцарелла для пиццы, колбаса
-                "Пепперони"</p>
-        </div>
-    </div>
-    <h2>Пицца</h2>
-
-    <div>
-        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
-        <span class="quantity" data-quantity="1">1</span>
-        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
-    </div>
-
-    <div class="size-buttons">
-        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
-        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
-        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
-    </div>
-
-    <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
-    <div class="toppings-menu" style="display:none;">
-        <label><input type="checkbox" name="toppings" value="сыр" data-price="2"> Сыр - $2</label><br>
-        <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
-    </div>
-
-    <p class="myprice" style="display:none;">Цена: $100</p>
-    <p class="total-price">Стоимость: $80</p>
-    <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
-</div>
-
-
-<div class="product" data-id="1" data-name="Пицца" data-price="100">
-    <div class="img-container" onclick="toggleOverlay(this)">
-        <img src="img/pizza11.jpg" alt="Пицца">
-        <div class="overlay">
-            <p>Подробнее о Пицце <br> пицца соус (томаты базилик орегано чеснок), моцарелла для пиццы, колбаса
-                "Пепперони"</p>
-        </div>
-    </div>
-    <h2>Пицца</h2>
-
-    <div>
-        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
-        <span class="quantity" data-quantity="1">1</span>
-        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
-    </div>
-
-    <div class="size-buttons">
-        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
-        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
-        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
-    </div>
-
-    <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
-    <div class="toppings-menu" style="display:none;">
-        <label><input type="checkbox" name="toppings" value="сыр" data-price="2"> Сыр - $2</label><br>
-        <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
-    </div>
-
-    <p class="myprice" style="display:none;">Цена: $100</p>
-    <p class="total-price">Стоимость: $80</p>
+    <p class="myprice" style="display:none;"></p>
+    <p class="total-price">Стоимость: 80&#8381;</p>
     <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
 </div>
 
@@ -295,11 +321,16 @@
         <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
     </div>
 
+
+
     <div class="size-buttons">
-        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
-        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
-        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
+        <button class="size-btn selected" data-size="26см-250г" data-price="80" onclick="selectSize(this)">26
+            СМ</button>
+        <button class="size-btn" data-size="30см-350г" data-price="100" onclick="selectSize(this)">30 СМ</button>
+        <button class="size-btn" data-size="40см-550г" data-price="120" onclick="selectSize(this)">40 СМ</button>
     </div>
+
+
 
     <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
     <div class="toppings-menu" style="display:none;">
@@ -307,12 +338,47 @@
         <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
     </div>
 
-    <p class="myprice" style="display:none;">Цена: $100</p>
-    <p class="total-price">Стоимость: $80</p>
+    <p class="myprice" style="display:none;"></p>
+    <p class="total-price">Стоимость: 80&#8381;</p>
     <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
 </div>
+<div class="product" data-id="1" data-name="Пицца" data-price="100">
+    <div class="img-container" onclick="toggleOverlay(this)">
+        <img src="img/pizza11.jpg" alt="Пицца">
+        <div class="overlay">
+            <p>Подробнее о Пицце <br> пицца соус (томаты базилик орегано чеснок), моцарелла для пиццы, колбаса
+                "Пепперони"</p>
+        </div>
+    </div>
+    <h2>Пицца</h2>
+
+    <div>
+        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
+        <span class="quantity" data-quantity="1">1</span>
+        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
+    </div>
 
 
+
+    <div class="size-buttons">
+        <button class="size-btn selected" data-size="26см-250г" data-price="80" onclick="selectSize(this)">26
+            СМ</button>
+        <button class="size-btn" data-size="30см-350г" data-price="100" onclick="selectSize(this)">30 СМ</button>
+        <button class="size-btn" data-size="40см-550г" data-price="120" onclick="selectSize(this)">40 СМ</button>
+    </div>
+
+
+
+    <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
+    <div class="toppings-menu" style="display:none;">
+        <label><input type="checkbox" name="toppings" value="сыр" data-price="2"> Сыр - $2</label><br>
+        <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
+    </div>
+
+    <p class="myprice" style="display:none;"></p>
+    <p class="total-price">Стоимость: 80&#8381;</p>
+    <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
+</div>
 
 <div class="product" data-id="1" data-name="Пицца" data-price="100">
     <div class="img-container" onclick="toggleOverlay(this)">
@@ -330,11 +396,16 @@
         <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
     </div>
 
+
+
     <div class="size-buttons">
-        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
-        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
-        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
+        <button class="size-btn selected" data-size="26см-250г" data-price="80" onclick="selectSize(this)">26
+            СМ</button>
+        <button class="size-btn" data-size="30см-350г" data-price="100" onclick="selectSize(this)">30 СМ</button>
+        <button class="size-btn" data-size="40см-550г" data-price="120" onclick="selectSize(this)">40 СМ</button>
     </div>
+
+
 
     <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
     <div class="toppings-menu" style="display:none;">
@@ -342,42 +413,8 @@
         <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
     </div>
 
-    <p class="myprice" style="display:none;">Цена: $100</p>
-    <p class="total-price">Стоимость: $80</p>
-    <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
-</div>
-
-
-<div class="product" data-id="1" data-name="Пицца" data-price="100">
-    <div class="img-container" onclick="toggleOverlay(this)">
-        <img src="img/pizza11.jpg" alt="Пицца">
-        <div class="overlay">
-            <p>Подробнее о Пицце <br> пицца соус (томаты базилик орегано чеснок), моцарелла для пиццы, колбаса
-                "Пепперони"</p>
-        </div>
-    </div>
-    <h2>Пицца</h2>
-
-    <div>
-        <button class="quantity-btn" onclick="decreaseQuantityCard(this)">-</button>
-        <span class="quantity" data-quantity="1">1</span>
-        <button class="quantity-btn" onclick="increaseQuantityCard(this)">+</button>
-    </div>
-
-    <div class="size-buttons">
-        <button class="size-btn selected" data-size="S" data-price="80" onclick="selectSize(this)">S</button>
-        <button class="size-btn" data-size="M" data-price="100" onclick="selectSize(this)">M</button>
-        <button class="size-btn" data-size="L" data-price="120" onclick="selectSize(this)">L</button>
-    </div>
-
-    <button onclick="toggleToppingsMenu(this)">Добавить ингредиенты</button>
-    <div class="toppings-menu" style="display:none;">
-        <label><input type="checkbox" name="toppings" value="сыр" data-price="2"> Сыр - $2</label><br>
-        <label><input type="checkbox" name="toppings" value="грибы" data-price="3"> Грибы - $3</label>
-    </div>
-
-    <p class="myprice" style="display:none;">Цена: $100</p>
-    <p class="total-price">Стоимость: $80</p>
+    <p class="myprice" style="display:none;"></p>
+    <p class="total-price">Стоимость: 80&#8381;</p>
     <button class="btnadd" onclick="addToCartPizza('Пицца', 100, this)">В корзину</button>
 </div>
 
