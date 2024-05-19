@@ -251,50 +251,80 @@ const increaseQuantity = (index) => {
     updateCartIconCount();
 };
 
-const toggleToppingsMenu = (button) => {
-    // Получаем следующий элемент после кнопки, который является меню топпингов.
-    const toppingsMenu = button.nextElementSibling;
-    // Переключаем отображение меню топпингов: если оно скрыто, показываем, если показано, скрываем.
-    toppingsMenu.style.display = toppingsMenu.style.display === 'none' ? 'block' : 'none';
-};
 
-const selectSize = (button) => {
-    // Находим ближайший элемент с классом 'product'.
-    const card = button.closest('.product');
-    // Получаем цену выбранного размера из data-атрибута кнопки.
-    const price = button.dataset.price;
-    // Обновляем текст с ценой в карточке товара.
-    card.querySelector('.myprice').textContent = `Цена: ${price}`;
-    card.querySelector('.total-price').textContent = `Общая стоимость: ${price}`;
-    // Убираем класс 'selected' у всех кнопок размеров.
-    card.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected'));
-    // Добавляем класс 'selected' к выбранной кнопке размера.
-    button.classList.add('selected');
-};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const decreaseQuantityCard = (button) => {
-    // Получаем элемент с количеством товара, который идет сразу после кнопки.
+    const card = button.closest('.product');
     const quantityElement = button.nextElementSibling;
-    // Преобразуем текстовое содержимое элемента в целое число.
     let quantity = parseInt(quantityElement.textContent);
     if (quantity > 1) {
-        // Если количество больше 1, уменьшаем его на 1.
         quantity--;
-        // Обновляем текстовое содержимое элемента с количеством.
         quantityElement.textContent = quantity;
+        updateTotalPrice(card);
     }
 };
 
 const increaseQuantityCard = (button) => {
-    // Получаем элемент с количеством товара, который идет сразу перед кнопкой.
+    const card = button.closest('.product');
     const quantityElement = button.previousElementSibling;
-    // Преобразуем текстовое содержимое элемента в целое число.
     let quantity = parseInt(quantityElement.textContent);
-    // Увеличиваем количество на 1.
     quantity++;
-    // Обновляем текстовое содержимое элемента с количеством.
     quantityElement.textContent = quantity;
+    updateTotalPrice(card);
 };
+
+const selectSize = (button) => {
+    const card = button.closest('.product');
+    card.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected'));
+    button.classList.add('selected');
+    updateTotalPrice(card);
+};
+
+const toggleToppingsMenu = (button) => {
+    const toppingsMenu = button.nextElementSibling;
+    toppingsMenu.style.display = toppingsMenu.style.display === 'none' ? 'block' : 'none';
+    const checkboxes = toppingsMenu.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => checkbox.addEventListener('change', () => updateTotalPrice(button.closest('.product'))));
+};
+
+const updateTotalPrice = (card) => {
+    const quantity = parseInt(card.querySelector('.quantity').textContent);
+    const selectedSizeButton = card.querySelector('.size-btn.selected');
+    const selectedSizePrice = parseInt(selectedSizeButton.dataset.price);
+    const selectedToppings = Array.from(card.querySelectorAll('input[type="checkbox"]:checked')).map(topping => parseInt(topping.dataset.price));
+    const extraPrice = selectedToppings.reduce((total, price) => total + price, 0);
+    const totalPrice = (selectedSizePrice + extraPrice) * quantity;
+    card.querySelector('.total-price').textContent = `Стоимость: ${totalPrice}₽`;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const goToMainPage = () => {
     // Если текущая страница не index.html, перенаправляем на index.html.
@@ -380,6 +410,7 @@ const checkout = () => {
     checkoutButton.style.display = 'block';
     checkoutButton.style.fontSize = "20px";
     checkoutButton.style.fontWeight = "bold";
+    checkoutButton.style.borderRadius = "25px"
 
     // Отправка заказа в Telegram.
     sendOrderToTelegram(name, phone, address);

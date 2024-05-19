@@ -267,51 +267,90 @@ const increaseQuantity = (index) => {
 
 
 
-
-
+// Уменьшает количество товара на карточке
 const decreaseQuantityCard = (button) => {
-    const card = button.closest('.product');
-    const quantityElement = button.nextElementSibling;
-    let quantity = parseInt(quantityElement.textContent);
-    if (quantity > 1) {
-        quantity--;
-        quantityElement.textContent = quantity;
-        updateTotalPrice(card);
+    const card = button.closest('.product'); // Находим карточку товара
+    const quantityElement = button.nextElementSibling; // Находим элемент количества
+    let quantity = parseInt(quantityElement.textContent); // Получаем текущее количество
+    if (quantity > 1) { // Проверяем, больше ли 1
+        quantity--; // Уменьшаем количество
+        quantityElement.textContent = quantity; // Обновляем отображаемое количество
+        updateTotalPrice(card); // Обновляем общую цену
     }
 };
 
+// Увеличивает количество товара на карточке
 const increaseQuantityCard = (button) => {
-    const card = button.closest('.product');
-    const quantityElement = button.previousElementSibling;
-    let quantity = parseInt(quantityElement.textContent);
-    quantity++;
-    quantityElement.textContent = quantity;
-    updateTotalPrice(card);
+    const card = button.closest('.product'); // Находим карточку товара
+    const quantityElement = button.previousElementSibling; // Находим элемент количества
+    let quantity = parseInt(quantityElement.textContent); // Получаем текущее количество
+    quantity++; // Увеличиваем количество
+    quantityElement.textContent = quantity; // Обновляем отображаемое количество
+    updateTotalPrice(card); // Обновляем общую цену
 };
 
+// Выбирает размер товара на карточке
 const selectSize = (button) => {
-    const card = button.closest('.product');
-    card.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected'));
-    button.classList.add('selected');
-    updateTotalPrice(card);
+    const card = button.closest('.product'); // Находим карточку товара
+    card.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected')); // Убираем выделение у всех кнопок размера
+    button.classList.add('selected'); // Выделяем выбранный размер
+    updateTotalPrice(card); // Обновляем общую цену
 };
 
+// Переключает меню добавок товара
 const toggleToppingsMenu = (button) => {
-    const toppingsMenu = button.nextElementSibling;
-    toppingsMenu.style.display = toppingsMenu.style.display === 'none' ? 'block' : 'none';
-    const checkboxes = toppingsMenu.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(checkbox => checkbox.addEventListener('change', () => updateTotalPrice(button.closest('.product'))));
+    const toppingsMenu = button.nextElementSibling; // Находим меню добавок
+    toppingsMenu.style.display = toppingsMenu.style.display === 'none' ? 'block' : 'none'; // Переключаем отображение меню
+    const checkboxes = toppingsMenu.querySelectorAll('input[type="checkbox"]'); // Находим все чекбоксы
+    checkboxes.forEach(checkbox => checkbox.addEventListener('change', () => updateTotalPrice(button.closest('.product')))); // Добавляем обработчик изменения для каждого чекбокса
 };
 
+// Обновляет общую цену товара
 const updateTotalPrice = (card) => {
-    const quantity = parseInt(card.querySelector('.quantity').textContent);
-    const selectedSizeButton = card.querySelector('.size-btn.selected');
-    const selectedSizePrice = parseInt(selectedSizeButton.dataset.price);
-    const selectedToppings = Array.from(card.querySelectorAll('input[type="checkbox"]:checked')).map(topping => parseInt(topping.dataset.price));
-    const extraPrice = selectedToppings.reduce((total, price) => total + price, 0);
-    const totalPrice = (selectedSizePrice + extraPrice) * quantity;
-    card.querySelector('.total-price').textContent = `Стоимость: ${totalPrice}₽`;
+    const quantity = parseInt(card.querySelector('.quantity').textContent); // Получаем количество товара
+    const selectedSizeButton = card.querySelector('.size-btn.selected'); // Получаем выбранную кнопку размера
+    const selectedSizePrice = parseInt(selectedSizeButton.dataset.price); // Получаем цену выбранного размера
+    const selectedToppings = Array.from(card.querySelectorAll('input[type="checkbox"]:checked')).map(topping => parseInt(topping.dataset.price)); // Получаем цены выбранных добавок
+    const extraPrice = selectedToppings.reduce((total, price) => total + price, 0); // Считаем дополнительную стоимость добавок
+    const totalPrice = (selectedSizePrice + extraPrice) * quantity; // Считаем общую стоимость товара
+    card.querySelector('.total-price').textContent = `Стоимость: ${totalPrice}₽`; // Обновляем отображаемую общую стоимость
 };
+
+// Уменьшает количество товара на карточке (альтернативная версия)
+const decreaseQuantityCardItem = (button) => {
+    const card = button.closest('.product'); // Находим карточку товара
+    const quantityElement = button.nextElementSibling; // Находим элемент количества
+    let quantity = parseInt(quantityElement.textContent); // Получаем текущее количество
+    if (quantity > 1) { // Проверяем, больше ли 1
+        quantity--; // Уменьшаем количество
+        quantityElement.textContent = quantity; // Обновляем отображаемое количество
+        updateTotalPriceItem(card); // Обновляем цену товара
+    }
+};
+
+// Увеличивает количество товара на карточке (альтернативная версия)
+const increaseQuantityCardItem = (button) => {
+    const card = button.closest('.product'); // Находим карточку товара
+    const quantityElement = button.previousElementSibling; // Находим элемент количества
+    let quantity = parseInt(quantityElement.textContent); // Получаем текущее количество
+    quantity++; // Увеличиваем количество
+    quantityElement.textContent = quantity; // Обновляем отображаемое количество
+    updateTotalPriceItem(card); // Обновляем цену товара
+};
+
+// Обновляет цену товара
+const updateTotalPriceItem = (card) => {
+    const quantity = parseInt(card.querySelector('.quantity').textContent); // Получаем количество товара
+    const basePrice = parseInt(card.dataset.price); // Получаем базовую цену
+    const totalPrice = basePrice * quantity; // Считаем общую цену
+    card.querySelector('.myprice').textContent = `Цена: $${totalPrice}`; // Обновляем отображаемую цену
+};
+
+
+
+
+
+
 
 
 
