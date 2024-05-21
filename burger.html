@@ -139,50 +139,52 @@
 
 
 
-    <!-- Модальное окно -->
-    <div class="modal" id="modal-1">
-        <div class="modal__content">
-            <button class="modal__close-button"><img src="/img/close.svg" width="12" alt=""></button>
-            <!-- Контент модального окна -->
+<!-- Модальное окно -->
+<div class="modal" id="modal-1">
+    <div class="modal__content">
+        <button class="modal__close-button"><img src="/img/close.svg" width="12" alt=""></button>
+        <!-- Контент модального окна -->
 
 
-            <!-- Корзина -->
-            <div class="cart" id="cart">
-                <h2 class="mycart">Корзина</h2>
-                <div id="cart-items"></div>
-                <div id="total-price"></div>
-                <br>
-                <!-- Поля для ввода данных -->
-                <input type="text" id="name" placeholder="Ваше имя">
-                <input type="tel" id="phone" placeholder="Номер телефона">
-                <input type="text" id="address" placeholder="Адрес доставки">
+        <!-- Корзина -->
+        <div class="cart" id="cart">
+            <h2 class="mycart">Корзина</h2>
+            <div id="cart-items"></div>
+            <div id="total-price"></div>
+            <br>
+            <!-- Поля для ввода данных -->
+            <input type="text" id="name" placeholder="Ваше имя">
+            <input type="tel" id="phone" placeholder="Номер телефона">
+            <input type="text" id="address" placeholder="Адрес доставки">
+            <!--  коммент HTML -->
+            <label for="comment">Комментарий к заказу:</label>
+            <textarea id="comment" placeholder="Ваш комментарий"></textarea>
 
-                <br>
-                <br>
+            <br>
+            <br>
 
-                <!-- Кнопка для оформления заказа -->
-                <div id="checkout-button" class="checkout-button">
-                    <button onclick="checkout()" class="button-checkout">Оформить заказ</button>
-                </div>
-                <div id="checkout-status" class="checkout-status" style="display: none;">
-                    <p id="sending-message">Отправка заказа...</p>
-                    <p id="ready-message" style="display: none;">Заказ успешно оформлен!</p>
-                </div>
-                <!-- Ссылка для возврата к покупкам -->
-                <a href="index.html" id="back-to-shopping">
-                    <button>Вернуться к покупкам</button>
-                </a>
-
+            <!-- Кнопка для оформления заказа -->
+            <div id="checkout-button" class="checkout-button">
+                <button onclick="checkout()" class="button-checkout">Оформить заказ</button>
             </div>
-
-
-
-
+            <div id="checkout-status" class="checkout-status" style="display: none;">
+                <p id="sending-message">Отправка заказа...</p>
+                <p id="ready-message" style="display: none;">Заказ успешно оформлен!</p>
+            </div>
+            <!-- Ссылка для возврата к покупкам -->
+            <a href="index.html" id="back-to-shopping">
+                <button>Вернуться к покупкам</button>
+            </a>
 
         </div>
-    </div>
-    <!-- Кнопка "Вернуться к покупкам" -->
 
+
+
+
+
+    </div>
+</div>
+<!-- Кнопка "Вернуться к покупкам" -->
 
 
 

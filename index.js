@@ -364,51 +364,42 @@ const updateTotalPriceItem = (card) => {
 
 
 
-
 const goToMainPage = () => {
-    // Если текущая страница не index.html, перенаправляем на index.html.
     if (window.location.href !== 'index.html') {
         window.location.href = 'index.html';
     }
 };
 
 function isValidName(name) {
-    // Регулярное выражение для проверки валидности имени.
     const namePattern = /^[a-zA-Zа-яА-Я ]+$/;
-    // Проверка имени на соответствие регулярному выражению.
     return namePattern.test(name);
 }
 
 function isValidPhone(phone) {
-    // Регулярное выражение для проверки валидности телефона.
     const phonePattern = /^\+?\d{10,15}$/;
-    // Проверка телефона на соответствие регулярному выражению.
     return phonePattern.test(phone);
 }
 
 function isNotEmpty(value) {
-    // Проверка, что значение не пустое и не состоит только из пробелов.
     return value && value.trim() !== '';
 }
 
 const checkout = () => {
-    // Получение элементов ввода и кнопки оформления заказа.
     const checkoutButton = document.getElementById('checkout-button');
     const nameInput = document.getElementById('name');
     const phoneInput = document.getElementById('phone');
     const addressInput = document.getElementById('address');
+    const commentInput = document.getElementById('comment'); // Новый элемент
 
-    // Получение значений из полей ввода.
     const name = nameInput.value;
     const phone = phoneInput.value;
     const address = addressInput.value;
+    const comment = commentInput.value; // Новый элемент
 
-    // Очистка текстовых подсказок.
     nameInput.placeholder = '';
     phoneInput.placeholder = '';
     addressInput.placeholder = '';
 
-    // Проверка валидности имени.
     if (!isNotEmpty(name) || !isValidName(name)) {
         nameInput.placeholder = 'ВВЕДИТЕ ИМЯ';
         nameInput.classList.add('error-placeholder');
@@ -419,7 +410,6 @@ const checkout = () => {
         nameInput.style.borderColor = '';
     }
 
-    // Проверка валидности телефона.
     if (!isNotEmpty(phone) || !isValidPhone(phone)) {
         phoneInput.placeholder = 'ВВЕДИТЕ ТЕЛЕФОН !';
         phoneInput.classList.add('error-placeholder');
@@ -430,7 +420,6 @@ const checkout = () => {
         phoneInput.style.borderColor = '';
     }
 
-    // Проверка заполненности адреса.
     if (!isNotEmpty(address)) {
         addressInput.placeholder = 'ВВЕДИТЕ АДРЕС !';
         addressInput.classList.add('error-placeholder');
@@ -441,7 +430,6 @@ const checkout = () => {
         addressInput.style.borderColor = '';
     }
 
-    // Изменение текстового содержимого и стиля кнопки при оформлении заказа.
     checkoutButton.textContent = 'ОТПРАВКА';
     checkoutButton.style.backgroundColor = 'red';
     checkoutButton.style.width = '150px';
@@ -449,12 +437,10 @@ const checkout = () => {
     checkoutButton.style.display = 'block';
     checkoutButton.style.fontSize = "20px";
     checkoutButton.style.fontWeight = "bold";
-    checkoutButton.style.borderRadius = "25px"
+    checkoutButton.style.borderRadius = "25px";
 
-    // Отправка заказа в Telegram.
-    sendOrderToTelegram(name, phone, address);
+    sendOrderToTelegram(name, phone, address, comment); // Добавлен комментарий
 
-    // Через 1 секунду изменение текстового содержимого и стиля кнопки обратно.
     setTimeout(() => {
         checkoutButton.textContent = 'Готово! Сейчас мы вам перезвоним для сверки заказа.';
         checkoutButton.style.backgroundColor = '';
@@ -464,40 +450,31 @@ const checkout = () => {
         checkoutButton.style.fontSize = "";
         checkoutButton.style.fontWeight = "";
 
-        // Очистка полей ввода.
         nameInput.value = '';
         phoneInput.value = '';
         addressInput.value = '';
+        commentInput.value = ''; // Новый элемент
+
     }, 1000);
 
-    // Очистка корзины и удаление данных корзины из localStorage.
     cartItems = [];
     localStorage.removeItem('cartItems');
-
-    // Перерисовка корзины.
     renderCart();
 
-    // Отображение кнопки для возврата к покупкам и добавление обработчика события.
     const backButton = document.getElementById('back-to-shopping');
     backButton.style.display = 'block';
     backButton.addEventListener('click', goToMainPage);
 };
 
-
-const sendOrderToTelegram = (name, phone, address) => {
-    // Генерируем уникальный номер заказа, используя текущее время и случайное число.
+const sendOrderToTelegram = (name, phone, address, comment) => { // Добавлен комментарий
     const orderNumber = `ORDER-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+    let message = `Новый заказ!\n\nНомер заказа: ${orderNumber}\nИмя: ${name}\nТелефон: ${phone}\nАдрес: ${address}\nКомментарий: ${comment}\n\n`; // Добавлен комментарий
 
-    // Создаем сообщение для отправки, включающее номер заказа, имя, телефон и адрес.
-    let message = `Новый заказ!\n\nНомер заказа: ${orderNumber}\nИмя: ${name}\nТелефон: ${phone}\nАдрес: ${address}\n\n`;
-
-    // Вычисляем общую стоимость заказа.
     let totalPrice = calculateTotalPrice();
 
-    // Добавляем информацию о каждом товаре в заказе к сообщению.
     cartItems.forEach(({ name, price, quantity, size, toppings }) => {
         const itemTotal = price * quantity;
-        message += `${name} - ${price}руб. x ${quantity} = ${itemTotal}руб.`;
+        message += `${name} - ${price} руб. x ${quantity} = ${itemTotal} руб.`;
         if (size) {
             message += ` (${size})`;
         }
@@ -507,55 +484,47 @@ const sendOrderToTelegram = (name, phone, address) => {
         message += '\n';
     });
 
-    // Добавляем общую стоимость к сообщению.
-    message += `\nОбщая стоимость: ${totalPrice}руб.`;
+    message += `\nОбщая стоимость: ${totalPrice} руб.`;
 
-    // Создаем и настраиваем XMLHttpRequest для отправки сообщения в Telegram.
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'https://api.telegram.org/bot5790561769:AAFXHNyxsGSq2z7I0ds6HhSKaNisZ416m8U/sendMessage', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
-
-    // Отправляем сообщение с данными заказа.
-    xhr.send(JSON.stringify({ chat_id: '-1002094926558', text: message }));
+    xhr.send(JSON.stringify({
+        chat_id: '-1002094926558',
+        text: message
+    }));
 };
 
 const calculateTotalPrice = () => {
-    // Вычисляем и возвращаем общую стоимость всех товаров в корзине.
     return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
 };
 
 const openCart = () => {
-    // Перенаправляем пользователя на страницу корзины.
     window.location.href = 'cart.html';
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Перерисовываем корзину при загрузке документа.
     renderCart();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Инициализация модального окна обратного звонка.
     let callBackButton = document.getElementById('callback-button');
     let modal1 = document.getElementById('modal-1');
     let closeButton = modal1.getElementsByClassName('modal__close-button')[0];
     let tagBody = document.getElementsByTagName('body');
 
-    // Обработчик клика для открытия модального окна.
     callBackButton.onclick = function (e) {
         e.preventDefault();
         modal1.classList.add('modal_active');
         tagBody.classList.add('hidden');
     };
 
-    // Обработчик клика для закрытия модального окна.
     closeButton.onclick = function (e) {
         e.preventDefault();
         modal1.classList.remove('modal_active');
         tagBody.classList.remove('hidden');
     };
 
-    // Обработчик события для закрытия модального окна при клике вне его содержимого.
     modal1.onmousedown = function (e) {
         let target = e.target;
         let modalContent = modal1.getElementsByClassName('modal__content')[0];
@@ -565,7 +534,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Обработчики клика для открытия модального окна из разных мест страницы.
     let buttonOpenModal1 = document.getElementsByClassName('get-modal_1');
     for (let button of buttonOpenModal1) {
         button.onclick = function (e) {
@@ -576,12 +544,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+
+
+
+
+
+
+
 const toggleOverlay = (container) => {
     // Переключаем видимость оверлея, изменяя его прозрачность.
     const overlay = container.querySelector('.overlay');
     const currentOpacity = window.getComputedStyle(overlay).opacity;
     overlay.style.opacity = currentOpacity == 0 ? '1' : '0';
 };
+
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
     // Добавляем анимацию к кнопкам добавления в корзину.
