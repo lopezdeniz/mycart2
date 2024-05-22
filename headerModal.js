@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadHeaderAndModal() {
         // Выполняем запрос для получения HTML шаблона хедера и модального окна
-        fetch('/headerModal.html')
+        fetch('headerModal.html')
             .then(response => response.text()) // Получаем текстовую версию ответа
             .then(data => {
                 document.body.insertAdjacentHTML('afterbegin', data); // Вставляем HTML в начало body
